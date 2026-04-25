@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-    <circle cx="25" cy="25" r="23" fill="none" stroke="#0055a5" stroke-width="3"/>
-    <circle cx="25" cy="25" r="16" fill="none" stroke="#0055a5" stroke-width="2.5"/>
-    <circle cx="25" cy="25" r="9" fill="none" stroke="#0055a5" stroke-width="2"/>
-    <circle cx="25" cy="25" r="3.5" fill="#0055a5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
+    <rect x="2" y="2" width="56" height="56" rx="14" fill="#0a2744"/>
+    <path d="M12,38 Q12,22 28,22 L48,22" stroke="#0055a5" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <polygon points="44,16 52,22 44,28" fill="#0055a5"/>
+    <rect x="26" y="18" width="10" height="8" rx="4" fill="#e63946"/>
+    <text x="30" y="50" fill="white" font-size="8" font-weight="800" text-anchor="middle" font-family="sans-serif" letter-spacing="2">KEW</text>
 </svg>

@@ -16,11 +16,18 @@
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <a href="index.html" class="nav-logo">
-                <svg class="logo-icon" viewBox="0 0 50 50" width="42" height="42">
-                    <circle cx="25" cy="25" r="23" fill="none" stroke="#0055a5" stroke-width="2.5"/>
-                    <circle cx="25" cy="25" r="16" fill="none" stroke="#0055a5" stroke-width="2"/>
-                    <circle cx="25" cy="25" r="9" fill="none" stroke="#0055a5" stroke-width="1.8"/>
-                    <circle cx="25" cy="25" r="3" fill="#0055a5"/>
+                <svg class="logo-icon" viewBox="0 0 60 60" width="42" height="42">
+                    <rect x="2" y="2" width="56" height="56" rx="14" fill="#0a2744"/>
+                    <path d="M12,38 Q12,22 28,22 L48,22" stroke="#0055a5" stroke-width="6" fill="none" stroke-linecap="round"/>
+                    <path d="M12,38 Q12,22 28,22 L48,22" stroke="rgba(255,255,255,0.15)" stroke-width="10" fill="none" stroke-linecap="round"/>
+                    <polygon points="44,16 52,22 44,28" fill="#0055a5"/>
+                    <rect x="26" y="18" width="10" height="8" rx="4" fill="#e63946">
+                        <animate attributeName="x" values="14;40;14" dur="2.5s" repeatCount="indefinite"/>
+                    </rect>
+                    <line x1="14" y1="34" x2="24" y2="34" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="18" y1="38" x2="30" y2="38" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="14" y1="42" x2="22" y2="42" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" stroke-linecap="round"/>
+                    <text x="30" y="50" fill="white" font-size="8" font-weight="800" text-anchor="middle" font-family="Inter, sans-serif" letter-spacing="2">KEW</text>
                 </svg>
                 <div class="logo-text">
                     <span class="logo-name">Kerri Engineering</span>
@@ -220,11 +227,15 @@
             <div class="footer-grid">
                 <div class="footer-about">
                     <a href="index.html" class="footer-logo">
-                        <svg class="logo-icon" viewBox="0 0 50 50" width="36" height="36">
-                            <circle cx="25" cy="25" r="23" fill="none" stroke="white" stroke-width="2.5"/>
-                            <circle cx="25" cy="25" r="16" fill="none" stroke="white" stroke-width="2"/>
-                            <circle cx="25" cy="25" r="9" fill="none" stroke="white" stroke-width="1.8"/>
-                            <circle cx="25" cy="25" r="3" fill="white"/>
+                        <svg class="logo-icon" viewBox="0 0 60 60" width="36" height="36">
+                            <rect x="2" y="2" width="56" height="56" rx="14" fill="#0055a5"/>
+                            <path d="M12,38 Q12,22 28,22 L48,22" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.3"/>
+                            <path d="M12,38 Q12,22 28,22 L48,22" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            <polygon points="44,16 52,22 44,28" fill="white"/>
+                            <rect x="26" y="18" width="10" height="8" rx="4" fill="#e63946">
+                                <animate attributeName="x" values="14;40;14" dur="2.5s" repeatCount="indefinite"/>
+                            </rect>
+                            <text x="30" y="50" fill="white" font-size="8" font-weight="800" text-anchor="middle" font-family="Inter, sans-serif" letter-spacing="2">KEW</text>
                         </svg>
                         <span>Kerri Engineering Works</span>
                     </a>

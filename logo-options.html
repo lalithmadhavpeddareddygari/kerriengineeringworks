@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerri Engineering - Logo Options</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f0f4f8; margin: 0; padding: 40px; }
+        h1 { text-align: center; color: #0a2744; margin-bottom: 10px; }
+        p.sub { text-align: center; color: #666; margin-bottom: 50px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 32px; max-width: 1200px; margin: 0 auto; }
+        .card { background: white; border-radius: 16px; padding: 40px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .card h3 { color: #0a2744; margin: 24px 0 8px; }
+        .card p { color: #666; font-size: 0.9rem; }
+        .logo-preview { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 20px 0; }
+        .logo-preview-dark { background: #0a2744; border-radius: 12px; padding: 30px 40px; display: flex; align-items: center; justify-content: center; gap: 16px; }
+        .logo-text-preview { text-align: left; }
+        .logo-text-preview .name { font-size: 1.3rem; font-weight: 800; color: #0a2744; line-height: 1.1; }
+        .logo-text-preview .tag { font-size: 0.8rem; font-weight: 600; color: #0055a5; letter-spacing: 0.1em; }
+        .logo-text-preview-light .name { color: white; }
+        .logo-text-preview-light .tag { color: rgba(255,255,255,0.7); }
+        .label { display: inline-block; background: #e8f2fc; color: #0055a5; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: 16px; }
+    </style>
+</head>
+<body>
+    <h1>Kerri Engineering Works - Logo Options</h1>
+    <p class="sub">Pick the one you like best, and I'll apply it across the website</p>
+
+    <div class="grid">
+        <!-- Option 1: K with Pipeline -->
+        <div class="card">
+            <span class="label">Option 1</span>
+            <h3>K + Pipeline</h3>
+            <p>The letter K formed with pipeline/tube shapes — directly representing pneumatic conveying</p>
+            <div class="logo-preview">
+                <svg viewBox="0 0 60 60" width="64" height="64">
+                    <rect x="2" y="2" width="56" height="56" rx="14" fill="#0055a5"/>
+                    <!-- K formed by pipes -->
+                    <line x1="18" y1="14" x2="18" y2="46" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                    <line x1="18" y1="30" x2="38" y2="14" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                    <line x1="18" y1="30" x2="38" y2="46" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                    <!-- Small circle connectors (pipe joints) -->
+                    <circle cx="18" cy="14" r="3" fill="white" opacity="0.4"/>
+                    <circle cx="18" cy="46" r="3" fill="white" opacity="0.4"/>
+                    <circle cx="18" cy="30" r="3" fill="white" opacity="0.4"/>
+                    <circle cx="38" cy="14" r="3" fill="white" opacity="0.4"/>
+                    <circle cx="38" cy="46" r="3" fill="white" opacity="0.4"/>
+                    <!-- Moving sample dot -->
+                    <circle r="2.5" fill="#e63946">
+                        <animateMotion dur="2s" repeatCount="indefinite" path="M18,46 L18,30 L38,14"/>
+                    </circle>
+                </svg>
+                <div class="logo-text-preview">
+                    <div class="name">KERRI</div>
+                    <div class="tag">ENGINEERING WORKS</div>
+                </div>
+            </div>
+            <div class="logo-preview-dark">
+                <svg viewBox="0 0 60 60" width="64" height="64">
+                    <rect x="2" y="2" width="56" height="56" rx="14" fill="#0055a5"/>
+                    <line x1="18" y1="14" x2="18" y2="46" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                    <line x1="18" y1="30" x2="38" y2="14" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                    <line x1="18" y1="30" x2="38" y2="46" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                    <circle cx="18" cy="14" r="3" fill="white" opacity="0.4"/>
+                    <circle cx="18" cy="46" r="3" fill="white" opacity="0.4"/>
+                    <circle cx="18" cy="30" r="3" fill="white" opacity="0.4"/>
+                    <circle cx="38" cy="14" r="3" fill="white" opacity="0.4"/>
+                    <circle cx="38" cy="46" r="3" fill="white" opacity="0.4"/>
+                    <circle r="2.5" fill="#e63946">
+                        <animateMotion dur="2s" repeatCount="indefinite" path="M18,46 L18,30 L38,14"/>
+                    </circle>
+                </svg>
+                <div class="logo-text-preview logo-text-preview-light">
+                    <div class="name">KERRI</div>
+                    <div class="tag">ENGINEERING WORKS</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Option 2: Pneumatic Tube with Arrow -->
+        <div class="card">
+            <span class="label">Option 2</span>
+            <h3>Pneumatic Flow</h3>
+            <p>A stylized pneumatic tube with a sample capsule in motion — shows speed and movement</p>
+            <div class="logo-preview">
+                <svg viewBox="0 0 60 60" width="64" height="64">
+                    <rect x="2" y="2" width="56" height="56" rx="14" fill="#0a2744"/>
+                    <!-- Tube path -->
+                    <path d="M12,38 Q12,22 28,22 L48,22" stroke="#0055a5" stroke-width="6" fill="none" stroke-linecap="round"/>
+                    <path d="M12,38 Q12,22 28,22 L48,22" stroke="rgba(255,255,255,0.15)" stroke-width="10" fill="none" stroke-linecap="round"/>
+                    <!-- Arrow tip -->
+                    <polygon points="44,16 52,22 44,28" fill="#0055a5"/>
+                    <!-- Sample capsule -->
+                    <rect x="26" y="18" width="10" height="8" rx="4" fill="#e63946">
+                        <animate attributeName="x" values="14;40;14" dur="2.5s" repeatCount="indefinite"/>
+                    </rect>
+                    <!-- Speed lines -->
+                    <line x1="14" y1="34" x2="24" y2="34" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="18" y1="38" x2="30" y2="38" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="14" y1="42" x2="22" y2="42" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" stroke-linecap="round"/>
+                    <!-- KEW text -->
+                    <text x="30" y="50" fill="white" font-size="8" font-weight="800" text-anchor="middle" font-family="Inter, sans-serif" letter-spacing="2">KEW</text>
+                </svg>
+                <div class="logo-text-preview">
+                    <div class="name">KERRI</div>
+                    <div class="tag">ENGINEERING WORKS</div>
+                </div>
+            </div>
+            <div class="logo-preview-dark">
+                <svg viewBox="0 0 60 60" width="64" height="64">
+                    <rect x="2" y="2" width="56" height="56" rx="14" fill="#0055a5"/>
+                    <path d="M12,38 Q12,22 28,22 L48,22" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.3"/>
+                    <path d="M12,38 Q12,22 28,22 L48,22" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <polygon points="44,16 52,22 44,28" fill="white"/>
+                    <rect x="26" y="18" width="10" height="8" rx="4" fill="#e63946">
+                        <animate attributeName="x" values="14;40;14" dur="2.5s" repeatCount="indefinite"/>
+                    </rect>
+                    <text x="30" y="50" fill="white" font-size="8" font-weight="800" text-anchor="middle" font-family="Inter, sans-serif" letter-spacing="2">KEW</text>
+                </svg>
+                <div class="logo-text-preview logo-text-preview-light">
+                    <div class="name">KERRI</div>
+                    <div class="tag">ENGINEERING WORKS</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Option 3: Hexagon Industrial -->
+        <div class="card">
+            <span class="label">Option 3</span>
+            <h3>Industrial Hexagon</h3>
+            <p>A bold hexagon (industrial/engineering shape) with a stylized K and conveying arrow inside</p>
+            <div class="logo-preview">
+                <svg viewBox="0 0 60 60" width="64" height="64">
+                    <!-- Hexagon -->
+                    <polygon points="30,3 54,16.5 54,43.5 30,57 6,43.5 6,16.5" fill="#0055a5" stroke="#0055a5" stroke-width="1"/>
+                    <!-- Inner hexagon outline -->
+                    <polygon points="30,9 48,20 48,40 30,51 12,40 12,20" fill="none" stroke="white" stroke-width="1" opacity="0.2"/>
+                    <!-- K letter -->
+                    <line x1="22" y1="18" x2="22" y2="42" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                    <line x1="22" y1="30" x2="38" y2="18" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                    <line x1="22" y1="30" x2="38" y2="42" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                    <!-- Arrow at top-right of K -->
+                    <circle cx="38" cy="18" r="4" fill="#e63946"/>
+                    <polygon points="36,15 42,18 36,21" fill="white"/>
+                </svg>
+                <div class="logo-text-preview">
+                    <div class="name">KERRI</div>
+                    <div class="tag">ENGINEERING WORKS</div>
+                </div>
+            </div>
+            <div class="logo-preview-dark">
+                <svg viewBox="0 0 60 60" width="64" height="64">
+                    <polygon points="30,3 54,16.5 54,43.5 30,57 6,43.5 6,16.5" fill="#0055a5"/>
+                    <polygon points="30,9 48,20 48,40 30,51 12,40 12,20" fill="none" stroke="white" stroke-width="1" opacity="0.2"/>
+                    <line x1="22" y1="18" x2="22" y2="42" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                    <line x1="22" y1="30" x2="38" y2="18" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                    <line x1="22" y1="30" x2="38" y2="42" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                    <circle cx="38" cy="18" r="4" fill="#e63946"/>
+                    <polygon points="36,15 42,18 36,21" fill="white"/>
+                </svg>
+                <div class="logo-text-preview logo-text-preview-light">
+                    <div class="name">KERRI</div>
+                    <div class="tag">ENGINEERING WORKS</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Option 4: Shield / Crest -->
+        <div class="card">
+            <span class="label">Option 4</span>
+            <h3>Engineering Crest</h3>
+            <p>A shield/crest shape conveying trust, reliability, and industrial strength</p>
+            <div class="logo-preview">
+                <svg viewBox="0 0 60 66" width="60" height="66">
+                    <!-- Shield shape -->
+                    <path d="M30,4 L54,14 L54,34 Q54,54 30,62 Q6,54 6,34 L6,14 Z" fill="#0055a5"/>
+                    <path d="M30,10 L48,18 L48,33 Q48,49 30,56 Q12,49 12,33 L12,18 Z" fill="none" stroke="white" stroke-width="1" opacity="0.2"/>
+                    <!-- Pipe/conveying symbol -->
+                    <path d="M18,28 L42,28" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M18,36 L42,36" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+                    <!-- Arrow -->
+                    <polygon points="40,24 48,28 40,32" fill="white"/>
+                    <!-- K text -->
+                    <text x="30" y="50" fill="white" font-size="10" font-weight="800" text-anchor="middle" font-family="Inter, sans-serif">KEW</text>
+                </svg>
+                <div class="logo-text-preview">
+                    <div class="name">KERRI</div>
+                    <div class="tag">ENGINEERING WORKS</div>
+                </div>
+            </div>
+            <div class="logo-preview-dark">
+                <svg viewBox="0 0 60 66" width="60" height="66">
+                    <path d="M30,4 L54,14 L54,34 Q54,54 30,62 Q6,54 6,34 L6,14 Z" fill="#0055a5"/>
+                    <path d="M30,10 L48,18 L48,33 Q48,49 30,56 Q12,49 12,33 L12,18 Z" fill="none" stroke="white" stroke-width="1" opacity="0.2"/>
+                    <path d="M18,28 L42,28" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M18,36 L42,36" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+                    <polygon points="40,24 48,28 40,32" fill="white"/>
+                    <text x="30" y="50" fill="white" font-size="10" font-weight="800" text-anchor="middle" font-family="Inter, sans-serif">KEW</text>
+                </svg>
+                <div class="logo-text-preview logo-text-preview-light">
+                    <div class="name">KERRI</div>
+                    <div class="tag">ENGINEERING WORKS</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Option 5: Circular with connected pipes -->
+        <div class="card">
+            <span class="label">Option 5</span>
+            <h3>Connected Circle</h3>
+            <p>A modern circular mark with interconnected pipe nodes — represents network and connectivity</p>
+            <div class="logo-preview">
+                <svg viewBox="0 0 60 60" width="64" height="64">
+                    <circle cx="30" cy="30" r="28" fill="#0055a5"/>
+                    <!-- Pipe network -->
+                    <circle cx="20" cy="22" r="5" fill="none" stroke="white" stroke-width="2"/>
+                    <circle cx="40" cy="22" r="5" fill="none" stroke="white" stroke-width="2"/>
+                    <circle cx="30" cy="40" r="5" fill="none" stroke="white" stroke-width="2"/>
+                    <!-- Connections -->
+                    <line x1="25" y1="22" x2="35" y2="22" stroke="white" stroke-width="2"/>
+                    <line x1="23" y1="26" x2="27" y2="36" stroke="white" stroke-width="2"/>
+                    <line x1="37" y1="26" x2="33" y2="36" stroke="white" stroke-width="2"/>
+                    <!-- Center K -->
+                    <text x="30" y="34" fill="white" font-size="12" font-weight="800" text-anchor="middle" font-family="Inter, sans-serif" opacity="0.3">K</text>
+                    <!-- Animated dots on connections -->
+                    <circle r="2" fill="#e63946">
+                        <animateMotion dur="1.5s" repeatCount="indefinite" path="M25,22 L35,22"/>
+                    </circle>
+                    <circle r="2" fill="#e63946">
+                        <animateMotion dur="2s" repeatCount="indefinite" path="M23,26 L27,36"/>
+                    </circle>
+                </svg>
+                <div class="logo-text-preview">
+                    <div class="name">KERRI</div>
+                    <div class="tag">ENGINEERING WORKS</div>
+                </div>
+            </div>
+            <div class="logo-preview-dark">
+                <svg viewBox="0 0 60 60" width="64" height="64">
+                    <circle cx="30" cy="30" r="28" fill="#0055a5"/>
+                    <circle cx="20" cy="22" r="5" fill="none" stroke="white" stroke-width="2"/>
+                    <circle cx="40" cy="22" r="5" fill="none" stroke="white" stroke-width="2"/>
+                    <circle cx="30" cy="40" r="5" fill="none" stroke="white" stroke-width="2"/>
+                    <line x1="25" y1="22" x2="35" y2="22" stroke="white" stroke-width="2"/>
+                    <line x1="23" y1="26" x2="27" y2="36" stroke="white" stroke-width="2"/>
+                    <line x1="37" y1="26" x2="33" y2="36" stroke="white" stroke-width="2"/>
+                    <text x="30" y="34" fill="white" font-size="12" font-weight="800" text-anchor="middle" font-family="Inter, sans-serif" opacity="0.3">K</text>
+                    <circle r="2" fill="#e63946">
+                        <animateMotion dur="1.5s" repeatCount="indefinite" path="M25,22 L35,22"/>
+                    </circle>
+                    <circle r="2" fill="#e63946">
+                        <animateMotion dur="2s" repeatCount="indefinite" path="M23,26 L27,36"/>
+                    </circle>
+                </svg>
+                <div class="logo-text-preview logo-text-preview-light">
+                    <div class="name">KERRI</div>
+                    <div class="tag">ENGINEERING WORKS</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Option 6: Minimal K Mark -->
+        <div class="card">
+            <span class="label">Option 6</span>
+            <h3>Minimal K Mark</h3>
+            <p>Clean, modern, and bold — a geometric K that works at any size, from favicon to signboard</p>
+            <div class="logo-preview">
+                <svg viewBox="0 0 60 60" width="64" height="64">
+                    <rect x="2" y="2" width="56" height="56" rx="12" fill="#0a2744"/>
+                    <!-- Geometric K -->
+                    <rect x="16" y="12" width="6" height="36" rx="3" fill="#0055a5"/>
+                    <rect x="16" y="26" width="24" height="6" rx="3" fill="#0055a5" transform="rotate(-35 16 29)"/>
+                    <rect x="16" y="26" width="24" height="6" rx="3" fill="#0055a5" transform="rotate(35 16 29)"/>
+                    <!-- Accent dot -->
+                    <circle cx="42" cy="14" r="4" fill="#e63946"/>
+                </svg>
+                <div class="logo-text-preview">
+                    <div class="name">KERRI</div>
+                    <div class="tag">ENGINEERING WORKS</div>
+                </div>
+            </div>
+            <div class="logo-preview-dark">
+                <svg viewBox="0 0 60 60" width="64" height="64">
+                    <rect x="2" y="2" width="56" height="56" rx="12" fill="#0055a5"/>
+                    <rect x="16" y="12" width="6" height="36" rx="3" fill="white"/>
+                    <rect x="16" y="26" width="24" height="6" rx="3" fill="white" transform="rotate(-35 16 29)"/>
+                    <rect x="16" y="26" width="24" height="6" rx="3" fill="white" transform="rotate(35 16 29)"/>
+                    <circle cx="42" cy="14" r="4" fill="#e63946"/>
+                </svg>
+                <div class="logo-text-preview logo-text-preview-light">
+                    <div class="name">KERRI</div>
+                    <div class="tag">ENGINEERING WORKS</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
