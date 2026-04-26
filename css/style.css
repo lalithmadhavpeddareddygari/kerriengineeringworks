@@ -110,8 +110,9 @@ h4 { font-size: 1.1rem; }
 
 .logo-text {
     display: flex;
-    flex-direction: column;
-    line-height: 1.15;
+    align-items: baseline;
+    gap: 6px;
+    line-height: 1;
 }
 
 .logo-name {
@@ -121,9 +122,9 @@ h4 { font-size: 1.1rem; }
 }
 
 .logo-tag {
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
 }
 
 .nav-menu {
@@ -1362,12 +1363,9 @@ h4 { font-size: 1.1rem; }
         gap: 4px;
     }
 
-    .nav-logo .logo-name {
-        font-size: 0.9rem;
-    }
-
+    .nav-logo .logo-name,
     .nav-logo .logo-tag {
-        font-size: 0.7rem;
+        font-size: 0.85rem;
     }
 
     .nav-menu.open {
