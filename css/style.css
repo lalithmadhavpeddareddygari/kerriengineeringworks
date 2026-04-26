@@ -1356,7 +1356,9 @@ h4 { font-size: 1.1rem; }
         border-bottom: 1px solid var(--border);
         box-shadow: var(--shadow-lg);
         transform: translateY(-120%);
-        transition: transform 0.35s ease;
+        visibility: hidden;
+        opacity: 0;
+        transition: transform 0.35s ease, visibility 0.35s ease, opacity 0.35s ease;
         gap: 4px;
     }
 
@@ -1366,6 +1368,8 @@ h4 { font-size: 1.1rem; }
 
     .nav-menu.open {
         transform: translateY(0);
+        visibility: visible;
+        opacity: 1;
     }
 
     .nav-link {
