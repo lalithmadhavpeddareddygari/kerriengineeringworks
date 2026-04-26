@@ -108,20 +108,7 @@ h4 { font-size: 1.1rem; }
     text-decoration: none;
 }
 
-.logo-text {
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-    line-height: 1;
-}
-
 .logo-name {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--navy);
-}
-
-.logo-tag {
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--navy);
@@ -1363,8 +1350,7 @@ h4 { font-size: 1.1rem; }
         gap: 4px;
     }
 
-    .nav-logo .logo-name,
-    .nav-logo .logo-tag {
+    .nav-logo .logo-name {
         font-size: 0.85rem;
     }
 
