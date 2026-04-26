@@ -1362,8 +1362,12 @@ h4 { font-size: 1.1rem; }
         gap: 4px;
     }
 
-    .nav-logo .logo-text {
-        display: none;
+    .nav-logo .logo-name {
+        font-size: 0.9rem;
+    }
+
+    .nav-logo .logo-tag {
+        font-size: 0.7rem;
     }
 
     .nav-menu.open {
