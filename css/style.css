@@ -196,11 +196,25 @@ h4 { font-size: 1.1rem; }
     opacity: 0.5;
 }
 
-.hero-content {
+.hero-inner {
     position: relative;
     z-index: 2;
-    padding-top: 120px;
-    max-width: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    padding-top: 100px;
+    min-height: 100vh;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-illustration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-badge {
@@ -1375,8 +1389,14 @@ h4 { font-size: 1.1rem; }
         text-align: center;
     }
 
-    .hero-content {
-        padding-top: 100px;
+    .hero-inner {
+        grid-template-columns: 1fr;
+        padding-top: 90px;
+        min-height: auto;
+    }
+
+    .hero-illustration {
+        display: none;
     }
 
     .hero-subtitle {

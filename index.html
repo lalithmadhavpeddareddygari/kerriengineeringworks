@@ -58,14 +58,128 @@
                 </svg>
             </div>
         </div>
-        <div class="container hero-content">
-            <div class="hero-badge">24+ Years of Engineering Excellence</div>
-            <h1 class="hero-title">Engineered for Excellence<br>in Customized Conveying</h1>
-            <p class="hero-subtitle">We move samples, you move forward</p>
-            <p class="hero-desc">Trusted providers of innovative pneumatic sample conveying systems and laboratory equipment for steel, cement, foundry, and aluminum industries worldwide.</p>
-            <div class="hero-buttons">
-                <a href="contact.html" class="btn btn-primary">Ask Us How</a>
-                <a href="products.html" class="btn btn-outline">Our Solutions</a>
+        <div class="container hero-inner">
+            <div class="hero-content">
+                <div class="hero-badge">24+ Years of Engineering Excellence</div>
+                <h1 class="hero-title">Engineered for Excellence<br>in Customized Conveying</h1>
+                <p class="hero-subtitle">We move samples, you move forward</p>
+                <p class="hero-desc">Trusted providers of innovative pneumatic sample conveying systems and laboratory equipment for steel, cement, foundry, and aluminum industries worldwide.</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-primary">Ask Us How</a>
+                    <a href="products.html" class="btn btn-outline">Our Solutions</a>
+                </div>
+            </div>
+            <div class="hero-illustration">
+                <svg viewBox="0 0 520 440" width="100%" height="100%">
+                    <!-- Background glow -->
+                    <defs>
+                        <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#0055a5" stop-opacity="0.15"/>
+                            <stop offset="100%" stop-color="#0055a5" stop-opacity="0"/>
+                        </radialGradient>
+                        <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+                            <polygon points="0 0, 8 3, 0 6" fill="rgba(255,255,255,0.5)"/>
+                        </marker>
+                    </defs>
+                    <ellipse cx="260" cy="220" rx="240" ry="200" fill="url(#glow1)"/>
+
+                    <!-- Sending Station (Melt Shop) -->
+                    <rect x="20" y="140" width="120" height="140" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+                    <rect x="35" y="155" width="90" height="30" rx="5" fill="rgba(0,85,165,0.4)" stroke="#0055a5" stroke-width="1"/>
+                    <text x="80" y="174" fill="white" font-size="10" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600">MELT SHOP</text>
+                    <!-- Furnace icon -->
+                    <rect x="50" y="200" width="60" height="50" rx="6" fill="rgba(230,57,70,0.15)" stroke="#e63946" stroke-width="1.2"/>
+                    <path d="M58,230 Q65,210 72,230 Q79,210 86,230 Q93,210 100,230" stroke="#e63946" stroke-width="1.5" fill="none" opacity="0.6"/>
+                    <rect x="60" y="255" width="40" height="12" rx="3" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                    <text x="80" y="264" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle" font-family="Inter, sans-serif">SAMPLE</text>
+
+                    <!-- Main Pipeline -->
+                    <path d="M140,225 L180,225 Q200,225 200,200 L200,160 Q200,140 220,140 L340,140 Q360,140 360,160 L360,200 Q360,225 380,225 L400,225"
+                          stroke="rgba(0,85,165,0.3)" stroke-width="16" fill="none" stroke-linecap="round"/>
+                    <path d="M140,225 L180,225 Q200,225 200,200 L200,160 Q200,140 220,140 L340,140 Q360,140 360,160 L360,200 Q360,225 380,225 L400,225"
+                          stroke="#0055a5" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+                    <!-- Animated Sample Capsule -->
+                    <circle r="7" fill="#e63946" opacity="0.9">
+                        <animateMotion dur="3s" repeatCount="indefinite"
+                            path="M140,225 L180,225 Q200,225 200,200 L200,160 Q200,140 220,140 L340,140 Q360,140 360,160 L360,200 Q360,225 380,225 L400,225"/>
+                        <animate attributeName="opacity" values="0;1;1;1;0" keyTimes="0;0.05;0.5;0.9;1" dur="3s" repeatCount="indefinite"/>
+                    </circle>
+                    <!-- Trail effect -->
+                    <circle r="5" fill="#e63946" opacity="0.4">
+                        <animateMotion dur="3s" repeatCount="indefinite" begin="-0.15s"
+                            path="M140,225 L180,225 Q200,225 200,200 L200,160 Q200,140 220,140 L340,140 Q360,140 360,160 L360,200 Q360,225 380,225 L400,225"/>
+                        <animate attributeName="opacity" values="0;0.4;0.4;0.4;0" keyTimes="0;0.05;0.5;0.9;1" dur="3s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle r="3" fill="#e63946" opacity="0.2">
+                        <animateMotion dur="3s" repeatCount="indefinite" begin="-0.3s"
+                            path="M140,225 L180,225 Q200,225 200,200 L200,160 Q200,140 220,140 L340,140 Q360,140 360,160 L360,200 Q360,225 380,225 L400,225"/>
+                        <animate attributeName="opacity" values="0;0.2;0.2;0.2;0" keyTimes="0;0.05;0.5;0.9;1" dur="3s" repeatCount="indefinite"/>
+                    </circle>
+
+                    <!-- Speed label -->
+                    <rect x="245" y="110" width="70" height="22" rx="11" fill="rgba(0,85,165,0.5)"/>
+                    <text x="280" y="125" fill="white" font-size="10" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600">100+ km/h</text>
+
+                    <!-- Receiving Station (Lab) -->
+                    <rect x="380" y="140" width="120" height="140" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+                    <rect x="395" y="155" width="90" height="30" rx="5" fill="rgba(0,85,165,0.4)" stroke="#0055a5" stroke-width="1"/>
+                    <text x="440" y="174" fill="white" font-size="10" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600">LABORATORY</text>
+                    <!-- Lab equipment -->
+                    <rect x="400" y="200" width="30" height="40" rx="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                    <rect x="405" y="205" width="20" height="15" rx="2" fill="rgba(34,197,94,0.2)" stroke="#22c55e" stroke-width="0.8"/>
+                    <text x="415" y="215" fill="#22c55e" font-size="6" text-anchor="middle" font-family="monospace">OK</text>
+                    <circle cx="410" cy="230" r="3" fill="#22c55e" opacity="0.6"/>
+                    <circle cx="420" cy="230" r="3" fill="#0055a5" opacity="0.4"/>
+
+                    <rect x="440" y="200" width="45" height="50" rx="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                    <rect x="445" y="205" width="35" height="20" rx="2" fill="rgba(0,85,165,0.2)" stroke="#0055a5" stroke-width="0.8"/>
+                    <text x="462" y="218" fill="rgba(255,255,255,0.6)" font-size="7" text-anchor="middle" font-family="monospace">ANALYSIS</text>
+                    <!-- Bar chart in screen -->
+                    <rect x="448" y="232" width="5" height="12" rx="1" fill="#0055a5" opacity="0.5"/>
+                    <rect x="455" y="228" width="5" height="16" rx="1" fill="#0055a5" opacity="0.7"/>
+                    <rect x="462" y="235" width="5" height="9" rx="1" fill="#0055a5" opacity="0.4"/>
+                    <rect x="469" y="225" width="5" height="19" rx="1" fill="#22c55e" opacity="0.6"/>
+
+                    <!-- Result return path (dashed) -->
+                    <path d="M400,290 L340,290 Q300,290 280,310 L200,310 Q160,310 140,290 L80,290"
+                          stroke="rgba(34,197,94,0.3)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+                    <text x="260" y="330" fill="rgba(34,197,94,0.5)" font-size="8" text-anchor="middle" font-family="Inter, sans-serif">Results returned in seconds</text>
+                    <!-- Return arrow -->
+                    <polygon points="85,286 75,290 85,294" fill="rgba(34,197,94,0.4)"/>
+
+                    <!-- Decorative nodes on pipeline -->
+                    <circle cx="200" cy="225" r="5" fill="#0a2744" stroke="#0055a5" stroke-width="1.5"/>
+                    <circle cx="200" cy="140" r="5" fill="#0a2744" stroke="#0055a5" stroke-width="1.5"/>
+                    <circle cx="360" cy="140" r="5" fill="#0a2744" stroke="#0055a5" stroke-width="1.5"/>
+                    <circle cx="360" cy="225" r="5" fill="#0a2744" stroke="#0055a5" stroke-width="1.5"/>
+
+                    <!-- Stats badges -->
+                    <rect x="30" y="60" width="100" height="50" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                    <text x="80" y="82" fill="white" font-size="16" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800">400+</text>
+                    <text x="80" y="98" fill="rgba(255,255,255,0.4)" font-size="8" text-anchor="middle" font-family="Inter, sans-serif">Projects</text>
+
+                    <rect x="390" y="60" width="100" height="50" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                    <text x="440" y="82" fill="white" font-size="16" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800">100+</text>
+                    <text x="440" y="98" fill="rgba(255,255,255,0.4)" font-size="8" text-anchor="middle" font-family="Inter, sans-serif">Clients</text>
+
+                    <!-- Air flow particles -->
+                    <circle cx="0" cy="0" r="1.5" fill="rgba(255,255,255,0.3)">
+                        <animateMotion dur="3s" repeatCount="indefinite" begin="0.5s"
+                            path="M160,225 L180,225 Q200,225 200,200 L200,160 Q200,140 220,140 L300,140"/>
+                        <animate attributeName="opacity" values="0;0.3;0" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+                    </circle>
+                    <circle cx="0" cy="0" r="1" fill="rgba(255,255,255,0.2)">
+                        <animateMotion dur="3s" repeatCount="indefinite" begin="1s"
+                            path="M160,225 L180,225 Q200,225 200,200 L200,160 Q200,140 220,140 L300,140"/>
+                        <animate attributeName="opacity" values="0;0.2;0" dur="3s" repeatCount="indefinite" begin="1s"/>
+                    </circle>
+                    <circle cx="0" cy="0" r="1" fill="rgba(255,255,255,0.2)">
+                        <animateMotion dur="3s" repeatCount="indefinite" begin="1.5s"
+                            path="M300,140 Q360,140 360,160 L360,200 Q360,225 380,225 L400,225"/>
+                        <animate attributeName="opacity" values="0;0.2;0" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+                    </circle>
+                </svg>
             </div>
         </div>
         <div class="hero-scroll">
