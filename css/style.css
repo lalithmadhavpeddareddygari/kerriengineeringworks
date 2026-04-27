@@ -98,7 +98,7 @@ h4 { font-size: 1.1rem; }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 72px;
+    height: 90px;
     max-width: 100%;
     padding: 0 48px;
 }
@@ -1367,7 +1367,7 @@ h4 { font-size: 1.1rem; }
 
     .nav-menu {
         position: fixed;
-        top: 72px;
+        top: 90px;
         left: 0;
         right: 0;
         z-index: 999;
