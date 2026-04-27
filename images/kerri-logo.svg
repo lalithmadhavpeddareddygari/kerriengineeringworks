@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <style>
+      .logo-stroke { fill: none; stroke: #2B5C8A; stroke-width: 11; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <!-- Outer circle - opens slightly where K connects -->
+  <path class="logo-stroke" d="
+    M70,170
+    A85,85 0 1,1 70,32
+  "/>
+  <!-- K vertical stem - flows from circle top to circle bottom -->
+  <path class="logo-stroke" d="
+    M70,32
+    Q72,50 72,70
+    L72,130
+    Q72,155 70,170
+  "/>
+  <!-- Upper arm of K - from mid stem curving to upper right into circle -->
+  <path class="logo-stroke" d="
+    M72,108
+    Q90,108 105,85
+    Q120,60 142,42
+    Q155,32 165,30
+  "/>
+  <!-- Lower arm of K - from mid stem curving to lower right -->
+  <path class="logo-stroke" d="
+    M80,115
+    Q95,135 112,152
+    Q130,168 152,176
+    Q162,178 168,170
+  "/>
+</svg>
