@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head><title>Logo Preview - Transparent vs Original</title>
+<style>
+    body { font-family: Arial, sans-serif; padding: 40px; text-align: center; }
+    .row { display: flex; justify-content: center; gap: 60px; margin: 30px 0; align-items: center; }
+    .item { text-align: center; }
+    .item p { margin-top: 8px; color: #666; font-size: 13px; }
+    .checkerboard { background: repeating-conic-gradient(#ddd 0% 25%, #fff 0% 50%) 50% / 16px 16px; padding: 20px; border-radius: 12px; display: inline-block; }
+    .dark-bg { background: #0a2744; padding: 30px 50px; border-radius: 12px; display: inline-flex; gap: 40px; align-items: center; }
+    .light-bg { background: #ffffff; padding: 30px 50px; border-radius: 12px; border: 1px solid #ddd; display: inline-flex; gap: 40px; align-items: center; }
+    h2 { color: #333; margin-top: 40px; }
+    .navbar-sim { background: white; border-bottom: 1px solid #e2e8f0; padding: 12px 40px; display: flex; align-items: center; gap: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); display: inline-flex; }
+    .navbar-sim span { font-size: 1.35rem; font-weight: 800; color: #0a2744; }
+    .footer-sim { background: #061b30; padding: 20px 40px; border-radius: 8px; display: inline-flex; align-items: center; gap: 12px; }
+    .footer-sim span { color: white; font-weight: 700; }
+    .footer-sim img { background: white; border-radius: 8px; padding: 4px; }
+</style>
+</head>
+<body>
+    <h1>Transparent Logo Preview</h1>
+
+    <h2>On Checkerboard (shows transparency)</h2>
+    <div class="row">
+        <div class="item">
+            <div class="checkerboard"><img src="images/kerri-logo.png" width="120" height="120"></div>
+            <p>Original (white background)</p>
+        </div>
+        <div class="item">
+            <div class="checkerboard"><img src="images/kerri-logo-transparent.png" width="120" height="120"></div>
+            <p>New (transparent background)</p>
+        </div>
+    </div>
+
+    <h2>Simulated Navbar</h2>
+    <div class="row">
+        <div class="item">
+            <div class="navbar-sim">
+                <img src="images/kerri-logo.png" width="52" height="52">
+                <span>Kerri Engineering Works</span>
+            </div>
+            <p>Original</p>
+        </div>
+        <div class="item">
+            <div class="navbar-sim">
+                <img src="images/kerri-logo-transparent.png" width="52" height="52">
+                <span>Kerri Engineering Works</span>
+            </div>
+            <p>Transparent</p>
+        </div>
+    </div>
+
+    <h2>Simulated Footer (dark background)</h2>
+    <div class="row">
+        <div class="item">
+            <div class="footer-sim">
+                <img src="images/kerri-logo.png" width="44" height="44">
+                <span>Kerri Engineering Works</span>
+            </div>
+            <p>Original (white box visible)</p>
+        </div>
+        <div class="item">
+            <div class="footer-sim">
+                <img src="images/kerri-logo-transparent.png" width="44" height="44" style="filter: brightness(0) invert(1);">
+                <span>Kerri Engineering Works</span>
+            </div>
+            <p>Transparent + white filter</p>
+        </div>
+    </div>
+
+    <h2>Different Sizes</h2>
+    <div class="row">
+        <div class="item"><img src="images/kerri-logo-transparent.png" width="32" height="32"><p>32px</p></div>
+        <div class="item"><img src="images/kerri-logo-transparent.png" width="52" height="52"><p>52px</p></div>
+        <div class="item"><img src="images/kerri-logo-transparent.png" width="80" height="80"><p>80px</p></div>
+        <div class="item"><img src="images/kerri-logo-transparent.png" width="120" height="120"><p>120px</p></div>
+    </div>
+</body>
+</html>
