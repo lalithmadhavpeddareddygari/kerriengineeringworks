@@ -124,62 +124,10 @@
                     </div>
                 </div>
 
-                <!-- Contact Form (Direct to Google Sheets) -->
-                <div class="contact-form-wrap">
-                    <form class="contact-form" id="sheetdb-form">
-                        <h3>Send Us a Message</h3>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Full Name *</label>
-                                <input type="text" name="name" id="name" required placeholder="Your name">
-                            </div>
-                            <div class="form-group">
-                                <label for="company">Company</label>
-                                <input type="text" name="company" id="company" placeholder="Your company">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" name="email" id="email" required placeholder="your@email.com">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" name="phone" id="phone" placeholder="+91 XXXXX XXXXX">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="industry">Industry</label>
-                            <select name="industry" id="industry">
-                                <option value="">Select your industry</option>
-                                <option value="steel">Steel</option>
-                                <option value="cement">Cement</option>
-                                <option value="foundry">Foundry</option>
-                                <option value="aluminum">Aluminum</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="interest">Interested In</label>
-                            <select name="interest" id="interest">
-                                <option value="">Select a product/service</option>
-                                <option value="pneumatic">Pneumatic Conveying System</option>
-                                <option value="sample-conveying">Sample Conveying System</option>
-                                <option value="steel-plant-transport">Sample Transportation in Steel Plant</option>
-                                <option value="macro-etching">Macro Etching Unit</option>
-                                <option value="dust-conveying">Dust Conveying System</option>
-                                <option value="custom">Custom Solution</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea name="message" id="message" rows="5" required placeholder="Tell us about your requirements..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-full" id="submit-btn">Send Message</button>
-                        <p id="success-msg" style="display:none; color: #22c55e; margin-top: 1rem; font-weight: 600; text-align: center;">✓ Message sent successfully! We will get back to you soon.</p>
-                        <p class="form-note">We typically respond within 24-48 hours.</p>
-                    </form>
+                <!-- HubSpot Contact Form Integration -->
+                <div class="contact-form-wrap" style="padding: 20px; background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <script src="https://js-na2.hsforms.net/forms/embed/246104806.js" defer></script>
+                    <div class="hs-form-frame" data-region="na2" data-form-id="73a6f065-94f6-4731-8714-75c55c4e1720" data-portal-id="246104806"></div>
                 </div>
             </div>
         </div>
@@ -251,31 +199,6 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbw-UNYjvvb7B-6XTE2m_HYPe-9kS8Jmq7mCTW1bmJAlepb3fkKNQ4NjcRWD1CzzU_Dp0w/exec';
-        const form = document.getElementById('sheetdb-form');
-        const btn = document.getElementById('submit-btn');
-        const successMsg = document.getElementById('success-msg');
-
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            btn.disabled = true;
-            btn.textContent = 'Sending...';
-
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => {
-                    btn.style.display = 'none';
-                    successMsg.style.display = 'block';
-                    form.reset();
-                })
-                .catch(error => {
-                    btn.disabled = false;
-                    btn.textContent = 'Send Message';
-                    alert('Error! Please try again or contact us via email.');
-                    console.error('Error!', error.message);
-                });
-        });
-    </script>
 </body>
 </html>
 >
