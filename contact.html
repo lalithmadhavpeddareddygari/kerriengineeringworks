@@ -124,33 +124,33 @@
                     </div>
                 </div>
 
-                <!-- Contact Form (Powered by Formspree) -->
+                <!-- Contact Form (Direct to Google Sheets) -->
                 <div class="contact-form-wrap">
-                    <form class="contact-form" action="https://formspree.io/f/mqakvjnd" method="POST">
+                    <form class="contact-form" id="sheetdb-form">
                         <h3>Send Us a Message</h3>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Full Name *</label>
-                                <input type="text" id="name" name="name" required placeholder="Your name">
+                                <input type="text" name="name" id="name" required placeholder="Your name">
                             </div>
                             <div class="form-group">
                                 <label for="company">Company</label>
-                                <input type="text" id="company" name="company" placeholder="Your company">
+                                <input type="text" name="company" id="company" placeholder="Your company">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="_replyto" required placeholder="your@email.com">
+                                <input type="email" name="email" id="email" required placeholder="your@email.com">
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+                                <input type="tel" name="phone" id="phone" placeholder="+91 XXXXX XXXXX">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="industry">Industry</label>
-                            <select id="industry" name="industry">
+                            <select name="industry" id="industry">
                                 <option value="">Select your industry</option>
                                 <option value="steel">Steel</option>
                                 <option value="cement">Cement</option>
@@ -161,7 +161,7 @@
                         </div>
                         <div class="form-group">
                             <label for="interest">Interested In</label>
-                            <select id="interest" name="interest">
+                            <select name="interest" id="interest">
                                 <option value="">Select a product/service</option>
                                 <option value="pneumatic">Pneumatic Conveying System</option>
                                 <option value="sample-conveying">Sample Conveying System</option>
@@ -173,13 +173,11 @@
                         </div>
                         <div class="form-group">
                             <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="Tell us about your requirements..."></textarea>
+                            <textarea name="message" id="message" rows="5" required placeholder="Tell us about your requirements..."></textarea>
                         </div>
                         
-                        <!-- Anti-spam honeypot field -->
-                        <input type="text" name="_gotcha" style="display:none">
-                        
-                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                        <button type="submit" class="btn btn-primary btn-full" id="submit-btn">Send Message</button>
+                        <p id="success-msg" style="display:none; color: #22c55e; margin-top: 1rem; font-weight: 600; text-align: center;">✓ Message sent successfully! We will get back to you soon.</p>
                         <p class="form-note">We typically respond within 24-48 hours.</p>
                     </form>
                 </div>
@@ -254,38 +252,28 @@
 
     <script src="js/main.js"></script>
     <script>
-        // Simple form handler
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        const scriptURL = 'REPLACE_WITH_YOUR_APPS_SCRIPT_URL';
+        const form = document.getElementById('sheetdb-form');
+        const btn = document.getElementById('submit-btn');
+        const successMsg = document.getElementById('success-msg');
+
+        form.addEventListener('submit', e => {
             e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            const company = document.getElementById('company').value;
-            const phone = document.getElementById('phone').value;
-            const industry = document.getElementById('industry').value;
-            const interest = document.getElementById('interest').value;
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
 
-            // Build mailto body
-            let body = `Name: ${name}%0D%0A`;
-            if (company) body += `Company: ${company}%0D%0A`;
-            if (phone) body += `Phone: ${phone}%0D%0A`;
-            if (industry) body += `Industry: ${industry}%0D%0A`;
-            if (interest) body += `Interested In: ${interest}%0D%0A`;
-            body += `%0D%0AMessage:%0D%0A${encodeURIComponent(message)}`;
-
-            const subject = encodeURIComponent(`Website Inquiry from ${name}${company ? ' - ' + company : ''}`);
-
-            window.location.href = `mailto:kerri_srija@yahoo.co.in?subject=${subject}&body=${body}`;
-
-            // Show confirmation
-            const btn = this.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-            btn.textContent = 'Opening Email Client...';
-            btn.style.background = '#22c55e';
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.background = '';
-            }, 3000);
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    btn.style.display = 'none';
+                    successMsg.style.display = 'block';
+                    form.reset();
+                })
+                .catch(error => {
+                    btn.disabled = false;
+                    btn.textContent = 'Send Message';
+                    alert('Error! Please try again or contact us via email.');
+                    console.error('Error!', error.message);
+                });
         });
     </script>
 </body>
