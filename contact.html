@@ -126,8 +126,14 @@
 
                 <!-- HubSpot Contact Form Integration -->
                 <div class="contact-form-wrap" style="padding: 20px; background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                    <script src="https://js-na2.hsforms.net/forms/embed/246104806.js" defer></script>
-                    <div class="hs-form-frame" data-region="na2" data-form-id="73a6f065-94f6-4731-8714-75c55c4e1720" data-portal-id="246104806"></div>
+                    <script charset="utf-8" type="text/javascript" src="//js-na2.hsforms.net/forms/embed/v2.js"></script>
+                    <script>
+                      hbspt.forms.create({
+                        region: "na2",
+                        portalId: "246104806",
+                        formId: "73a6f065-94f6-4731-8714-75c55c4e1720"
+                      });
+                    </script>
                 </div>
             </div>
         </div>
@@ -200,6 +206,4 @@
 
     <script src="js/main.js"></script>
 </body>
-</html>
->
 </html>
