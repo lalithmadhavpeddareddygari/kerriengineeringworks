@@ -777,7 +777,107 @@ h4 { font-size: 1.1rem; }
 .page-header p {
     color: rgba(255,255,255,0.6);
     font-size: 1.15rem;
-    max-width: 560px;
+    max-width: 720px;
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 16px;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+}
+
+.breadcrumb a {
+    color: rgba(255,255,255,0.9);
+}
+
+.breadcrumb a:hover {
+    color: var(--white);
+}
+
+.prose-block {
+    max-width: 860px;
+}
+
+.prose-block p,
+.prose-block li {
+    color: var(--text-light);
+}
+
+.prose-block p {
+    margin-bottom: 1rem;
+    max-width: 860px;
+}
+
+.prose-block h2 {
+    margin: 2.2rem 0 0.75rem;
+}
+
+.prose-block h3 {
+    margin: 1.5rem 0 0.5rem;
+}
+
+.prose-block ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin: 0 0 1rem;
+    max-width: 860px;
+}
+
+.prose-block li {
+    margin-bottom: 0.45rem;
+}
+
+.area-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 12px;
+    margin: 1.25rem 0 0.5rem;
+    max-width: 860px;
+}
+
+.area-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+}
+
+.area-card strong {
+    display: block;
+    color: var(--navy);
+    margin-bottom: 4px;
+}
+
+.area-card span {
+    color: var(--text-light);
+    font-size: 0.92rem;
+}
+
+.faq-list {
+    display: grid;
+    gap: 14px;
+    margin-top: 1.25rem;
+    max-width: 860px;
+}
+
+.faq-item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+}
+
+.faq-item h3 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+}
+
+.faq-item p {
+    margin: 0;
 }
 
 /* --- About Page --- */
