@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /logo-options.html
+Disallow: /logo-capsule-options.html
+Disallow: /logo-check.html
+Disallow: /logo-preview.html
 
 Sitemap: https://kerriengineeringworks.in/sitemap.xml
