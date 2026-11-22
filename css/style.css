@@ -1218,13 +1218,44 @@ p {
   margin-top: 4px;
 }
 
-.stats-band .stat-cell:first-child .data-lg::before {
+.stats-band .stat-cell .data-lg::before {
   content: "";
   display: block;
   width: 32px;
   height: 4px;
-  background: var(--kew-molten);
   margin-bottom: 12px;
+}
+
+.stats-band .stat-cell:first-child .data-lg::before {
+  background: var(--kew-molten);
+}
+
+.stats-band .stat-cell:not(:first-child) .data-lg::before {
+  background: transparent;
+}
+
+html.capture-mode .site-header {
+  position: relative;
+  top: auto;
+}
+
+.hubspot-fallback {
+  margin: 0;
+  padding: 20px;
+  border: 1px dashed var(--kew-alloy);
+  border-radius: var(--radius-lg);
+  background: var(--kew-mist);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--kew-steel);
+}
+
+.hubspot-fallback:not([hidden]) {
+  display: block;
+}
+
+.hubspot-fallback a {
+  color: var(--kew-blue);
 }
 
 /* Elevated cards */

@@ -111,16 +111,19 @@
 
         <div class="hubspot-wrap">
           <h2 class="h3 hubspot-wrap__title">Send an enquiry</h2>
-          <div id="hubspot-form-embed" class="hubspot-wrap__target"></div>
-          <script charset="utf-8" type="text/javascript" src="https://js-na2.hsforms.net/forms/embed/v2.js"></script>
-          <script>
-            hbspt.forms.create({
-              region: "na2",
-              portalId: "246104806",
-              formId: "73a6f065-94f6-4731-8714-75c55c4e1720",
-              target: "#hubspot-form-embed"
-            });
-          </script>
+          <div class="hubspot-form-mount hubspot-wrap__target">
+            <script charset="utf-8" type="text/javascript" src="//js-na2.hsforms.net/forms/embed/v2.js"></script>
+            <script>
+              hbspt.forms.create({
+                region: "na2",
+                portalId: "246104806",
+                formId: "73a6f065-94f6-4731-8714-75c55c4e1720"
+              });
+            </script>
+          </div>
+          <p id="hubspot-form-fallback" class="hubspot-fallback" hidden>
+            Form not loading? Email <a href="mailto:kerri_srija@yahoo.co.in">kerri_srija@yahoo.co.in</a> or call <a href="tel:+919848253198">+91 98482 53198</a>.
+          </p>
         </div>
       </div>
     </section>
@@ -192,5 +195,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/hubspot-fallback.js"></script>
 </body>
 </html>

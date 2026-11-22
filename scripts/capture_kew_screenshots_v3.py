@@ -108,12 +108,20 @@ async def wait_for_contact_embeds(page) -> None:
         pass
     try:
         await page.wait_for_selector(
-            "#hubspot-form-embed iframe, .hubspot-wrap__target iframe",
+            ".hubspot-form-mount iframe, .hubspot-wrap__target iframe",
             timeout=45000,
         )
     except Exception:
         pass
-    await page.wait_for_timeout(1500)
+    await page.wait_for_timeout(6500)
+
+
+async def enable_capture_mode(page) -> None:
+    await page.evaluate(
+        """() => {
+      document.documentElement.classList.add("capture-mode");
+    }"""
+    )
 
 
 async def force_reveals_visible(page) -> None:
@@ -194,6 +202,9 @@ async def capture_page(
         await wait_for_contact_embeds(page)
         await scroll_full_page(page)
         await wait_for_contact_embeds(page)
+    await enable_capture_mode(page)
+    await page.evaluate("window.scrollTo({ top: 0, behavior: 'instant' })")
+    await page.wait_for_timeout(200)
     out = OUT_DIR / f"{slug}-{label}-{version}.png"
     await page.screenshot(path=str(out), full_page=True)
     await context.close()
@@ -209,6 +220,10 @@ async def main() -> None:
     )
     parser.add_argument("--slug", help="Capture only this page slug (e.g. index)")
     parser.add_argument(
+        "--slugs",
+        help="Comma-separated slugs (e.g. index,contact); overrides default page list",
+    )
+    parser.add_argument(
         "--viewport",
         choices=("desktop", "mobile"),
         help="Capture only this viewport (requires --slug)",
@@ -217,7 +232,14 @@ async def main() -> None:
     version = args.version
 
     pages = PAGES
-    if args.slug:
+    if args.slugs:
+        wanted = {s.strip() for s in args.slugs.split(",") if s.strip()}
+        pages = [(p, s) for p, s in PAGES if s in wanted]
+        if len(pages) != len(wanted):
+            missing = wanted - {s for _, s in pages}
+            print(f"unknown slug(s): {', '.join(sorted(missing))}", file=sys.stderr)
+            sys.exit(1)
+    elif args.slug:
         pages = [(p, s) for p, s in PAGES if s == args.slug]
         if not pages:
             print(f"unknown slug: {args.slug}", file=sys.stderr)
