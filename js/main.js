@@ -1,145 +1,118 @@
-/* Kerri Engineering Works — site behaviour */
+/* ============================================
+   KERRI ENGINEERING WORKS - Main JavaScript
+   ============================================ */
 
-(function () {
-  document.documentElement.classList.add("js-enhanced");
-
-  const navToggle = document.getElementById("navToggle");
-  const headerNav = document.getElementById("headerNav");
-  const siteHeader = document.getElementById("siteHeader");
-
-  if (navToggle && headerNav) {
-    navToggle.addEventListener("click", () => {
-      const isOpen = headerNav.classList.toggle("is-open");
-      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      navToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Close menu" : "Open menu"
-      );
-    });
-
-    headerNav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        headerNav.classList.remove("is-open");
-        navToggle.setAttribute("aria-expanded", "false");
-        navToggle.setAttribute("aria-label", "Open menu");
-      });
-    });
-  }
-
-  if (siteHeader) {
-    const onScroll = () => {
-      siteHeader.classList.toggle("is-scrolled", window.scrollY > 8);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-  }
-
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", (e) => {
-      const id = anchor.getAttribute("href");
-      if (!id || id.length < 2) return;
-      const target = document.querySelector(id);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
-  });
-
-  /* Reveal on scroll — never leave content hidden */
-  const revealEls = document.querySelectorAll(".reveal");
-  const reduceMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-  function markVisible(el) {
-    el.classList.add("is-visible");
-  }
-
-  function revealInViewport() {
-    const vh = window.innerHeight || document.documentElement.clientHeight;
-    revealEls.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < vh * 0.94 && rect.bottom > 0) {
-        markVisible(el);
-      }
-    });
-  }
-
-  document
-    .querySelectorAll(".page-hero .reveal, .hero .reveal, .clients-feature .reveal")
-    .forEach(markVisible);
-
-  if (revealEls.length) {
-    if (reduceMotion) {
-      revealEls.forEach(markVisible);
-    } else if ("IntersectionObserver" in window) {
-      const revealObs = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              markVisible(entry.target);
-              revealObs.unobserve(entry.target);
-            }
-          });
-        },
-        { rootMargin: "0px 0px 5% 0px", threshold: 0.02 }
-      );
-      revealEls.forEach((el) => revealObs.observe(el));
-      revealInViewport();
-      window.addEventListener("load", revealInViewport);
-      window.addEventListener("resize", revealInViewport);
-      window.setTimeout(() => revealEls.forEach(markVisible), 4000);
+// --- Navbar scroll effect ---
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
     } else {
-      revealEls.forEach(markVisible);
+        navbar.classList.remove('scrolled');
     }
-  }
+});
 
-  /* Hero image crossfade */
-  const heroSlides = document.querySelectorAll(".hero__slide");
-  const reduceMotionHero = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-  if (heroSlides.length > 1 && !reduceMotionHero) {
-    let heroIdx = 0;
-    window.setInterval(() => {
-      heroSlides[heroIdx].classList.remove("is-active");
-      heroIdx = (heroIdx + 1) % heroSlides.length;
-      heroSlides[heroIdx].classList.add("is-active");
-    }, 7000);
-  }
+// --- Mobile menu toggle ---
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
 
-  /* Stat counters */
-  const statCounters = document.querySelectorAll("[data-count]");
-  const reduceMotionStats = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-  function animateCounter(el) {
-    const target = Number(el.getAttribute("data-count"));
-    const suffix = el.getAttribute("data-suffix") || "";
-    if (!Number.isFinite(target) || reduceMotionStats) return;
-    const duration = 1200;
-    const start = performance.now();
-    const tick = (now) => {
-      const t = Math.min(1, (now - start) / duration);
-      const val = Math.round(target * (0.3 + 0.7 * t));
-      el.textContent = `${val}${suffix}`;
-      if (t < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  }
-  if (statCounters.length && "IntersectionObserver" in window) {
-    const statObs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            animateCounter(entry.target);
-            statObs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.4 }
+navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+    // Animate hamburger
+    const spans = navToggle.querySelectorAll('span');
+    if (navMenu.classList.contains('open')) {
+        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    } else {
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+    }
+});
+
+// Close menu when clicking a link
+navMenu.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        const spans = navToggle.querySelectorAll('span');
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+    });
+});
+
+// --- Scroll animations (fade in) ---
+const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -60px 0px',
+    threshold: 0.1
+};
+
+const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            fadeObserver.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Apply fade-in to key elements
+document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = document.querySelectorAll(
+        '.visual-card, .product-card, .value-item, .industry-card, .client-card, ' +
+        '.sector-card, .vm-card, .lifecycle-step, .process-step, .contact-item, ' +
+        '.product-detail-content, .product-detail-visual, .about-intro-text, ' +
+        '.about-intro-stats, .leader-card, .mini-stat'
     );
-    statCounters.forEach((el) => statObs.observe(el));
-  }
-})();
+
+    animatedElements.forEach((el, i) => {
+        el.classList.add('fade-in');
+        el.style.transitionDelay = `${(i % 4) * 0.1}s`;
+        fadeObserver.observe(el);
+    });
+});
+
+// --- Smooth scroll for anchor links ---
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
+// --- Counter animation for stats ---
+function animateCounter(el) {
+    const target = parseInt(el.getAttribute('data-count'));
+    if (!target) return;
+
+    let current = 0;
+    const increment = target / 40;
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+        el.textContent = Math.floor(current) + '+';
+    }, 30);
+}
+
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const counters = entry.target.querySelectorAll('[data-count]');
+            counters.forEach(counter => animateCounter(counter));
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+const statsBar = document.querySelector('.stats-bar');
+if (statsBar) {
+    statsObserver.observe(statsBar);
+}

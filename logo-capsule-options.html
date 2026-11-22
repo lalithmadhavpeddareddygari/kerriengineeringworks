@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logo with Capsule - Options</title>
+    <style>
+        body { font-family: 'Inter', Arial, sans-serif; background: #f0f4f8; margin: 0; padding: 40px; }
+        h1 { text-align: center; color: #0a2744; margin-bottom: 10px; }
+        p.sub { text-align: center; color: #666; margin-bottom: 50px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 32px; max-width: 1200px; margin: 0 auto; }
+        .card { background: white; border-radius: 16px; padding: 40px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .card h3 { color: #0a2744; margin: 20px 0 8px; }
+        .card p { color: #666; font-size: 0.9rem; }
+        .sizes { display: flex; justify-content: center; align-items: end; gap: 30px; margin-top: 20px; }
+        .sizes .sz { text-align: center; }
+        .sizes .sz span { display: block; font-size: 11px; color: #999; margin-top: 4px; }
+        .dark-row { background: #0a2744; border-radius: 12px; padding: 30px; margin-top: 20px; display: flex; justify-content: center; gap: 40px; align-items: center; }
+        .label { display: inline-block; background: #e8f2fc; color: #0055a5; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: 12px; }
+        .ref { margin: 40px auto; max-width: 600px; text-align: center; }
+        .ref img { border-radius: 8px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <h1>Kerri Engineering Works - Logo with Carrier Capsule</h1>
+    <p class="sub">Your original K logo + steel carrier capsule at the junction</p>
+
+    <div class="ref">
+        <h3>Original Logo for Reference</h3>
+        <img src="images/kerri-logo.jpg" width="120" height="120">
+    </div>
+
+    <div class="grid">
+        <!-- Option 1: Capsule tilted along upper arm -->
+        <div class="card">
+            <span class="label">Option 1</span>
+            <svg viewBox="0 0 200 200" width="180" height="180">
+                <circle cx="100" cy="100" r="88" fill="none" stroke="#2B5C8A" stroke-width="9"/>
+                <!-- K vertical stem -->
+                <path d="M68,35 Q66,55 66,80 L66,120 Q66,145 68,165" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                <!-- Upper arm -->
+                <path d="M66,105 Q88,105 103,82 Q118,58 138,44 Q152,34 162,32" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                <!-- Lower arm -->
+                <path d="M76,112 Q92,132 108,148 Q124,164 144,172 Q156,176 164,168" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                <!-- Carrier capsule at junction, tilted along upper arm direction -->
+                <g transform="translate(98,88) rotate(-50)">
+                    <!-- Capsule body -->
+                    <rect x="-12" y="-7" width="24" height="14" rx="3" fill="none" stroke="#2B5C8A" stroke-width="2.5"/>
+                    <!-- Cap with rubber buffer (right side) -->
+                    <line x1="12" y1="-7" x2="12" y2="7" stroke="#2B5C8A" stroke-width="2.5"/>
+                    <rect x="12" y="-5" width="4" height="10" rx="1.5" fill="#2B5C8A" opacity="0.4"/>
+                    <!-- Rubber buffer (left side) -->
+                    <rect x="-16" y="-5" width="4" height="10" rx="1.5" fill="#2B5C8A" opacity="0.4"/>
+                </g>
+            </svg>
+            <h3>Capsule at Junction (Tilted)</h3>
+            <p>Carrier sits at the K junction, angled along the upper arm direction</p>
+            <div class="sizes">
+                <div class="sz">
+                    <svg viewBox="0 0 200 200" width="36" height="36">
+                        <circle cx="100" cy="100" r="88" fill="none" stroke="#2B5C8A" stroke-width="9"/>
+                        <path d="M68,35 Q66,55 66,80 L66,120 Q66,145 68,165" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <path d="M66,105 Q88,105 103,82 Q118,58 138,44 Q152,34 162,32" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <path d="M76,112 Q92,132 108,148 Q124,164 144,172 Q156,176 164,168" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <g transform="translate(98,88) rotate(-50)">
+                            <rect x="-12" y="-7" width="24" height="14" rx="3" fill="none" stroke="#2B5C8A" stroke-width="2.5"/>
+                            <line x1="12" y1="-7" x2="12" y2="7" stroke="#2B5C8A" stroke-width="2.5"/>
+                            <rect x="12" y="-5" width="4" height="10" rx="1.5" fill="#2B5C8A" opacity="0.4"/>
+                            <rect x="-16" y="-5" width="4" height="10" rx="1.5" fill="#2B5C8A" opacity="0.4"/>
+                        </g>
+                    </svg>
+                    <span>36px</span>
+                </div>
+                <div class="sz">
+                    <svg viewBox="0 0 200 200" width="64" height="64">
+                        <circle cx="100" cy="100" r="88" fill="none" stroke="#2B5C8A" stroke-width="9"/>
+                        <path d="M68,35 Q66,55 66,80 L66,120 Q66,145 68,165" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <path d="M66,105 Q88,105 103,82 Q118,58 138,44 Q152,34 162,32" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <path d="M76,112 Q92,132 108,148 Q124,164 144,172 Q156,176 164,168" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <g transform="translate(98,88) rotate(-50)">
+                            <rect x="-12" y="-7" width="24" height="14" rx="3" fill="none" stroke="#2B5C8A" stroke-width="2.5"/>
+                            <line x1="12" y1="-7" x2="12" y2="7" stroke="#2B5C8A" stroke-width="2.5"/>
+                            <rect x="12" y="-5" width="4" height="10" rx="1.5" fill="#2B5C8A" opacity="0.4"/>
+                            <rect x="-16" y="-5" width="4" height="10" rx="1.5" fill="#2B5C8A" opacity="0.4"/>
+                        </g>
+                    </svg>
+                    <span>64px</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Option 2: Capsule upright at junction -->
+        <div class="card">
+            <span class="label">Option 2</span>
+            <svg viewBox="0 0 200 200" width="180" height="180">
+                <circle cx="100" cy="100" r="88" fill="none" stroke="#2B5C8A" stroke-width="9"/>
+                <!-- K vertical stem -->
+                <path d="M68,35 Q66,55 66,80 L66,120 Q66,145 68,165" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                <!-- Upper arm -->
+                <path d="M66,105 Q88,105 103,82 Q118,58 138,44 Q152,34 162,32" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                <!-- Lower arm -->
+                <path d="M76,112 Q92,132 108,148 Q124,164 144,172 Q156,176 164,168" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                <!-- Carrier capsule - vertical at junction -->
+                <g transform="translate(88,105)">
+                    <!-- Capsule body -->
+                    <rect x="-8" y="-14" width="16" height="28" rx="3" fill="none" stroke="#2B5C8A" stroke-width="2.5"/>
+                    <!-- Top cap with buffer -->
+                    <line x1="-8" y1="-6" x2="8" y2="-6" stroke="#2B5C8A" stroke-width="2"/>
+                    <rect x="-6" y="-17" width="12" height="3" rx="1.5" fill="#2B5C8A" opacity="0.4"/>
+                    <!-- Bottom buffer -->
+                    <rect x="-6" y="14" width="12" height="3" rx="1.5" fill="#2B5C8A" opacity="0.4"/>
+                </g>
+            </svg>
+            <h3>Capsule Vertical at Junction</h3>
+            <p>Upright carrier capsule positioned right at the center of the K</p>
+            <div class="sizes">
+                <div class="sz">
+                    <svg viewBox="0 0 200 200" width="36" height="36">
+                        <circle cx="100" cy="100" r="88" fill="none" stroke="#2B5C8A" stroke-width="9"/>
+                        <path d="M68,35 Q66,55 66,80 L66,120 Q66,145 68,165" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <path d="M66,105 Q88,105 103,82 Q118,58 138,44 Q152,34 162,32" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <path d="M76,112 Q92,132 108,148 Q124,164 144,172 Q156,176 164,168" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <g transform="translate(88,105)">
+                            <rect x="-8" y="-14" width="16" height="28" rx="3" fill="none" stroke="#2B5C8A" stroke-width="2.5"/>
+                            <line x1="-8" y1="-6" x2="8" y2="-6" stroke="#2B5C8A" stroke-width="2"/>
+                            <rect x="-6" y="-17" width="12" height="3" rx="1.5" fill="#2B5C8A" opacity="0.4"/>
+                            <rect x="-6" y="14" width="12" height="3" rx="1.5" fill="#2B5C8A" opacity="0.4"/>
+                        </g>
+                    </svg>
+                    <span>36px</span>
+                </div>
+                <div class="sz">
+                    <svg viewBox="0 0 200 200" width="64" height="64">
+                        <circle cx="100" cy="100" r="88" fill="none" stroke="#2B5C8A" stroke-width="9"/>
+                        <path d="M68,35 Q66,55 66,80 L66,120 Q66,145 68,165" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <path d="M66,105 Q88,105 103,82 Q118,58 138,44 Q152,34 162,32" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <path d="M76,112 Q92,132 108,148 Q124,164 144,172 Q156,176 164,168" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <g transform="translate(88,105)">
+                            <rect x="-8" y="-14" width="16" height="28" rx="3" fill="none" stroke="#2B5C8A" stroke-width="2.5"/>
+                            <line x1="-8" y1="-6" x2="8" y2="-6" stroke="#2B5C8A" stroke-width="2"/>
+                            <rect x="-6" y="-17" width="12" height="3" rx="1.5" fill="#2B5C8A" opacity="0.4"/>
+                            <rect x="-6" y="14" width="12" height="3" rx="1.5" fill="#2B5C8A" opacity="0.4"/>
+                        </g>
+                    </svg>
+                    <span>64px</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Option 3: Capsule between the arms like the hand drawing -->
+        <div class="card">
+            <span class="label">Option 3 (Closest to Drawing)</span>
+            <svg viewBox="0 0 200 200" width="180" height="180">
+                <circle cx="100" cy="100" r="88" fill="none" stroke="#2B5C8A" stroke-width="9"/>
+                <!-- K vertical stem -->
+                <path d="M68,35 Q66,55 66,80 L66,120 Q66,145 68,165" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                <!-- Upper arm -->
+                <path d="M66,105 Q88,105 103,82 Q118,58 138,44 Q152,34 162,32" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                <!-- Lower arm -->
+                <path d="M76,112 Q92,132 108,148 Q124,164 144,172 Q156,176 164,168" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                <!-- Carrier capsule - between the two arms, slightly right of junction -->
+                <g transform="translate(105,108) rotate(-10)">
+                    <!-- Capsule body (cylinder) -->
+                    <rect x="-10" y="-15" width="20" height="30" rx="4" fill="white" stroke="#2B5C8A" stroke-width="2.5"/>
+                    <!-- Cap line (top) -->
+                    <line x1="-10" y1="-7" x2="10" y2="-7" stroke="#2B5C8A" stroke-width="2"/>
+                    <!-- Top rubber buffer -->
+                    <rect x="-7" y="-19" width="14" height="4" rx="2" fill="#2B5C8A" opacity="0.5"/>
+                    <!-- Bottom rubber buffer -->
+                    <rect x="-7" y="15" width="14" height="4" rx="2" fill="#2B5C8A" opacity="0.5"/>
+                    <!-- Sample inside indication -->
+                    <rect x="-5" y="-3" width="10" height="14" rx="1" fill="#2B5C8A" opacity="0.1"/>
+                </g>
+            </svg>
+            <h3>Capsule Between Arms (Like Drawing)</h3>
+            <p>White-filled carrier between upper and lower K arms, matching your hand sketch</p>
+            <div class="sizes">
+                <div class="sz">
+                    <svg viewBox="0 0 200 200" width="36" height="36">
+                        <circle cx="100" cy="100" r="88" fill="none" stroke="#2B5C8A" stroke-width="9"/>
+                        <path d="M68,35 Q66,55 66,80 L66,120 Q66,145 68,165" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <path d="M66,105 Q88,105 103,82 Q118,58 138,44 Q152,34 162,32" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <path d="M76,112 Q92,132 108,148 Q124,164 144,172 Q156,176 164,168" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <g transform="translate(105,108) rotate(-10)">
+                            <rect x="-10" y="-15" width="20" height="30" rx="4" fill="white" stroke="#2B5C8A" stroke-width="2.5"/>
+                            <line x1="-10" y1="-7" x2="10" y2="-7" stroke="#2B5C8A" stroke-width="2"/>
+                            <rect x="-7" y="-19" width="14" height="4" rx="2" fill="#2B5C8A" opacity="0.5"/>
+                            <rect x="-7" y="15" width="14" height="4" rx="2" fill="#2B5C8A" opacity="0.5"/>
+                            <rect x="-5" y="-3" width="10" height="14" rx="1" fill="#2B5C8A" opacity="0.1"/>
+                        </g>
+                    </svg>
+                    <span>36px</span>
+                </div>
+                <div class="sz">
+                    <svg viewBox="0 0 200 200" width="64" height="64">
+                        <circle cx="100" cy="100" r="88" fill="none" stroke="#2B5C8A" stroke-width="9"/>
+                        <path d="M68,35 Q66,55 66,80 L66,120 Q66,145 68,165" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <path d="M66,105 Q88,105 103,82 Q118,58 138,44 Q152,34 162,32" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <path d="M76,112 Q92,132 108,148 Q124,164 144,172 Q156,176 164,168" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <g transform="translate(105,108) rotate(-10)">
+                            <rect x="-10" y="-15" width="20" height="30" rx="4" fill="white" stroke="#2B5C8A" stroke-width="2.5"/>
+                            <line x1="-10" y1="-7" x2="10" y2="-7" stroke="#2B5C8A" stroke-width="2"/>
+                            <rect x="-7" y="-19" width="14" height="4" rx="2" fill="#2B5C8A" opacity="0.5"/>
+                            <rect x="-7" y="15" width="14" height="4" rx="2" fill="#2B5C8A" opacity="0.5"/>
+                            <rect x="-5" y="-3" width="10" height="14" rx="1" fill="#2B5C8A" opacity="0.1"/>
+                        </g>
+                    </svg>
+                    <span>64px</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Option 4: Subtle outline capsule, no fill -->
+        <div class="card">
+            <span class="label">Option 4</span>
+            <svg viewBox="0 0 200 200" width="180" height="180">
+                <circle cx="100" cy="100" r="88" fill="none" stroke="#2B5C8A" stroke-width="9"/>
+                <!-- K vertical stem -->
+                <path d="M68,35 Q66,55 66,80 L66,120 Q66,145 68,165" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                <!-- Upper arm -->
+                <path d="M66,105 Q88,105 103,82 Q118,58 138,44 Q152,34 162,32" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                <!-- Lower arm -->
+                <path d="M76,112 Q92,132 108,148 Q124,164 144,172 Q156,176 164,168" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                <!-- Carrier capsule - outline only, between arms -->
+                <g transform="translate(105,108) rotate(-10)">
+                    <!-- Capsule body -->
+                    <rect x="-10" y="-15" width="20" height="30" rx="4" fill="none" stroke="#2B5C8A" stroke-width="2.5"/>
+                    <!-- Cap line -->
+                    <line x1="-10" y1="-7" x2="10" y2="-7" stroke="#2B5C8A" stroke-width="2"/>
+                    <!-- Top rubber buffer -->
+                    <rect x="-7" y="-19" width="14" height="4" rx="2" fill="#2B5C8A" opacity="0.5"/>
+                    <!-- Bottom rubber buffer -->
+                    <rect x="-7" y="15" width="14" height="4" rx="2" fill="#2B5C8A" opacity="0.5"/>
+                </g>
+            </svg>
+            <h3>Outline Capsule (No Fill)</h3>
+            <p>Same position, but capsule is outline only — blends more with the K</p>
+            <div class="sizes">
+                <div class="sz">
+                    <svg viewBox="0 0 200 200" width="36" height="36">
+                        <circle cx="100" cy="100" r="88" fill="none" stroke="#2B5C8A" stroke-width="9"/>
+                        <path d="M68,35 Q66,55 66,80 L66,120 Q66,145 68,165" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <path d="M66,105 Q88,105 103,82 Q118,58 138,44 Q152,34 162,32" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <path d="M76,112 Q92,132 108,148 Q124,164 144,172 Q156,176 164,168" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <g transform="translate(105,108) rotate(-10)">
+                            <rect x="-10" y="-15" width="20" height="30" rx="4" fill="none" stroke="#2B5C8A" stroke-width="2.5"/>
+                            <line x1="-10" y1="-7" x2="10" y2="-7" stroke="#2B5C8A" stroke-width="2"/>
+                            <rect x="-7" y="-19" width="14" height="4" rx="2" fill="#2B5C8A" opacity="0.5"/>
+                            <rect x="-7" y="15" width="14" height="4" rx="2" fill="#2B5C8A" opacity="0.5"/>
+                        </g>
+                    </svg>
+                    <span>36px</span>
+                </div>
+                <div class="sz">
+                    <svg viewBox="0 0 200 200" width="64" height="64">
+                        <circle cx="100" cy="100" r="88" fill="none" stroke="#2B5C8A" stroke-width="9"/>
+                        <path d="M68,35 Q66,55 66,80 L66,120 Q66,145 68,165" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <path d="M66,105 Q88,105 103,82 Q118,58 138,44 Q152,34 162,32" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <path d="M76,112 Q92,132 108,148 Q124,164 144,172 Q156,176 164,168" stroke="#2B5C8A" stroke-width="11" fill="none" stroke-linecap="round"/>
+                        <g transform="translate(105,108) rotate(-10)">
+                            <rect x="-10" y="-15" width="20" height="30" rx="4" fill="none" stroke="#2B5C8A" stroke-width="2.5"/>
+                            <line x1="-10" y1="-7" x2="10" y2="-7" stroke="#2B5C8A" stroke-width="2"/>
+                            <rect x="-7" y="-19" width="14" height="4" rx="2" fill="#2B5C8A" opacity="0.5"/>
+                            <rect x="-7" y="15" width="14" height="4" rx="2" fill="#2B5C8A" opacity="0.5"/>
+                        </g>
+                    </svg>
+                    <span>64px</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:center; margin-top:40px; color:#999; font-size:14px;">
+        <p>Note: These use an SVG recreation of the K. The chosen capsule design will be overlaid on your original JPG logo.</p>
+    </div>
+</body>
+</html>
