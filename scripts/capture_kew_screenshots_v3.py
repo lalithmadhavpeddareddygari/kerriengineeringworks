@@ -10,6 +10,7 @@ from playwright.async_api import async_playwright
 
 BASE_URL = "http://127.0.0.1:8765"
 OUT_DIR = Path("/opt/cursor/artifacts/kew-screenshots")
+VERSION = "v4"
 
 PAGES = [
     ("index.html", "index"),
@@ -67,19 +68,6 @@ async def scroll_full_page(page) -> None:
     )
 
 
-async def scroll_gallery(page) -> None:
-    track = page.locator("#gallery-track")
-    if await track.count() == 0:
-        return
-    for _ in range(12):
-        await track.evaluate(
-            "(el) => { el.scrollLeft += Math.max(280, el.clientWidth * 0.65); }"
-        )
-        await asyncio.sleep(0.22)
-    await track.evaluate("(el) => { el.scrollLeft = 0; }")
-    await asyncio.sleep(0.35)
-
-
 async def capture_page(browser, path: str, slug: str, label: str) -> None:
     context = await browser.new_context(
         viewport=VIEWPORTS[label],
@@ -90,12 +78,10 @@ async def capture_page(browser, path: str, slug: str, label: str) -> None:
     await page.goto(f"{BASE_URL}/{path}", wait_until=wait, timeout=90000)
     await page.wait_for_timeout(1200)
     await scroll_full_page(page)
-    if slug == "index":
-        await scroll_gallery(page)
     await wait_for_images(page)
     await scroll_full_page(page)
     await wait_for_images(page)
-    out = OUT_DIR / f"{slug}-{label}-v3.png"
+    out = OUT_DIR / f"{slug}-{label}-{VERSION}.png"
     await page.screenshot(path=str(out), full_page=True)
     await context.close()
     print(f"wrote {out}")
