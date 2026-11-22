@@ -20,11 +20,12 @@
   <link rel="icon" href="images/brand/kerri-mark-small-navy.svg" type="image/svg+xml">
   <link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <meta name="theme-color" content="#0E2A47">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
+  <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <a href="index.html" class="header-logo">
         <img src="images/brand/kerri-logo-horizontal-navy.svg" alt="Kerri Engineering Works" width="200" height="44">
@@ -45,24 +46,27 @@
   </header>
 
   <main id="main">
-    <div class="page-intro">
-      <div class="container">
+    <div class="page-hero">
+      <div class="container reveal">
         <p class="label label--blue">Established 2000</p>
+        <span class="accent-rule" aria-hidden="true"></span>
         <h1 class="h1">About Kerri Engineering Works</h1>
         <p class="lead">Special-purpose machinery for pneumatic sample transport and plant laboratory equipment, from design through commissioning.</p>
       </div>
     </div>
 
     <section class="section">
-      <div class="container two-col">
+      <div class="container split reveal">
         <div>
-          <h2 class="h2">Company</h2>
+          <p class="label label--blue">Company</p>
+          <span class="accent-rule" aria-hidden="true"></span>
+          <h2 class="h2">Who we are</h2>
           <p>Kerri Engineering Works is based in Autonagar, Visakhapatnam. We serve steel, cement, foundry and aluminium plants in India and international markets.</p>
           <p>Our pneumatic sample conveying systems move material from metallurgical processing areas to centralised laboratories for chemical analysis. Transport speeds exceed 100 km/h on suitable routes; results return to operation areas within seconds.</p>
           <p>We design, manufacture, supply, install and commission conveying systems and macro etching units for plants that require reliable, rapid sample logistics.</p>
         </div>
-        <div>
-          <div class="stats-row" style="border: 1px solid var(--kew-alloy);">
+        <div class="stats-panel">
+          <div class="stats-row stats-row--panel">
             <div class="stat-cell">
               <span class="data-lg">24+</span>
               <p class="stat-desc">Years experience</p>
@@ -71,12 +75,12 @@
               <span class="data-lg">400+</span>
               <p class="stat-desc">Projects delivered</p>
             </div>
-            <div class="stat-cell" style="border-right: none;">
+            <div class="stat-cell">
               <span class="data-lg">100+</span>
               <p class="stat-desc">Clients served</p>
             </div>
           </div>
-          <div class="mii-band" style="margin-top: 24px;">
+          <div class="mii-band mii-band--compact">
             <span class="mii-band__tag">Make in India</span>
             <p>Class 1 local supplier, over 80% local content.</p>
           </div>
@@ -85,8 +89,9 @@
     </section>
 
     <section class="section section--mist">
-      <div class="container">
-        <p class="label">In-house capability</p>
+      <div class="container reveal">
+        <p class="label label--blue">In-house capability</p>
+        <span class="accent-rule" aria-hidden="true"></span>
         <h2 class="h2">What we do</h2>
         <p>Mechanical design, fabrication, assembly, site installation and commissioning are handled by our Visakhapatnam works and field team. Systems are built around horizontal C-loop or vertical upright receiving stations, with routing and blower duty matched to each plant.</p>
         <p>Macro etching units and dust conveying lines follow the same project path: site survey, detailed design, manufacture, delivery, installation and performance testing.</p>
@@ -94,8 +99,9 @@
     </section>
 
     <section class="section">
-      <div class="container">
-        <p class="label">Process</p>
+      <div class="container reveal">
+        <p class="label label--blue">Process</p>
+        <span class="accent-rule" aria-hidden="true"></span>
         <h2 class="h2">Design to commissioning</h2>
         <div class="process-grid">
           <article class="process-step">
@@ -123,8 +129,9 @@
     </section>
 
     <section class="section section--mist">
-      <div class="container">
-        <p class="label">Leadership</p>
+      <div class="container reveal">
+        <p class="label label--blue">Leadership</p>
+        <span class="accent-rule" aria-hidden="true"></span>
         <h2 class="h2">Managing director and CTO</h2>
         <div class="leader-block">
           <img src="images/CTO.jpg" alt="Dandala Srinivasa Reddy" width="400" height="400" loading="lazy" decoding="async">
@@ -137,11 +144,12 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
+    <section class="section section--navy">
+      <div class="container reveal">
         <p class="label">References</p>
+        <span class="accent-rule accent-rule" aria-hidden="true"></span>
         <h2 class="h2">Clients</h2>
-        <p>Steel and aluminium plants across India and selected international installations.</p>
+        <p class="lead lead--on-dark">Steel and aluminium plants across India and selected international installations.</p>
         <div class="clients-strip" role="list">
           <span class="client-name" role="listitem">SAIL</span>
           <span class="client-name" role="listitem">Vizag Steel Plant (RINL)</span>
@@ -153,7 +161,8 @@
     </section>
 
     <section class="cta-band">
-      <div class="container">
+      <div class="container reveal">
+        <span class="accent-rule accent-rule" aria-hidden="true"></span>
         <h2 class="h2">Request a quote</h2>
         <p>Describe your sample route, laboratory position and utilities. We will respond with a recommended station type and scope.</p>
         <a href="contact.html" class="btn btn-primary">Request a quote</a>
@@ -164,11 +173,14 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div>
+        <div class="footer-about">
           <a href="index.html" class="footer-logo">
             <img src="images/brand/kerri-logo-horizontal-white.svg" alt="Kerri Engineering Works" width="180" height="40">
           </a>
           <p>Pneumatic sample conveying and laboratory equipment from Visakhapatnam.</p>
+          <div class="footer-cta">
+            <a href="contact.html" class="btn btn-primary">Request a quote</a>
+          </div>
         </div>
         <div>
           <h3>Pages</h3>
@@ -197,6 +209,7 @@
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 Kerri Engineering Works. All rights reserved.</p>
+        <p><a href="tel:+919848253198">+91 98482 53198</a> · <a href="mailto:kerri_srija@yahoo.co.in">kerri_srija@yahoo.co.in</a></p>
       </div>
     </div>
   </footer>

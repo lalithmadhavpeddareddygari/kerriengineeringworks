@@ -20,6 +20,7 @@
   <link rel="icon" href="images/brand/kerri-mark-small-navy.svg" type="image/svg+xml">
   <link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <meta name="theme-color" content="#0E2A47">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -46,7 +47,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
+  <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <a href="index.html" class="header-logo">
         <img src="images/brand/kerri-logo-horizontal-navy.svg" alt="Kerri Engineering Works" width="200" height="44">
@@ -67,22 +68,23 @@
   </header>
 
   <main id="main">
-    <div class="page-intro">
-      <div class="container">
+    <div class="page-hero">
+      <div class="container reveal">
         <p class="label label--blue">Enquiries</p>
+        <span class="accent-rule" aria-hidden="true"></span>
         <h1 class="h1">Request a quote</h1>
         <p class="lead">Use the form for project enquiries, or call or email with layout drawings and distance estimates.</p>
       </div>
     </div>
 
     <section class="section">
-      <div class="container contact-grid">
+      <div class="container contact-grid reveal">
         <div>
           <h2 class="h2">Kerri Engineering Works</h2>
           <p>We supply pneumatic sample conveying systems, macro etching units and dust conveying for steel, cement, foundry and aluminium plants.</p>
 
           <div class="contact-detail">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.5" aria-hidden="true"><path d="M12 21s7-5.5 7-12a7 7 0 1 0-14 0c0 6.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s7-5.5 7-12a7 7 0 1 0-14 0c0 6.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
             <div>
               <h3>Headquarters</h3>
               <p>F/C: 90/14, 'D' Block, Autonagar,<br>Visakhapatnam, A.P, 530012<br>India</p>
@@ -90,7 +92,7 @@
           </div>
 
           <div class="contact-detail">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <div>
               <h3>Phone</h3>
               <p><a href="tel:+919848253198">+91 98482 53198</a><br><a href="tel:+919003830357">+91 90038 30357</a></p>
@@ -98,7 +100,7 @@
           </div>
 
           <div class="contact-detail">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.5" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
             <div>
               <h3>Email</h3>
               <p><a href="mailto:kerri_srija@yahoo.co.in">kerri_srija@yahoo.co.in</a><br><a href="mailto:kerri.srija@yahoo.com">kerri.srija@yahoo.com</a></p>
@@ -120,8 +122,9 @@
     </section>
 
     <section class="section section--mist">
-      <div class="container">
-        <p class="label">Location</p>
+      <div class="container reveal">
+        <p class="label label--blue">Location</p>
+        <span class="accent-rule" aria-hidden="true"></span>
         <h2 class="h2">Works address</h2>
         <div class="map-wrap">
           <iframe
@@ -139,11 +142,14 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div>
+        <div class="footer-about">
           <a href="index.html" class="footer-logo">
             <img src="images/brand/kerri-logo-horizontal-white.svg" alt="Kerri Engineering Works" width="180" height="40">
           </a>
           <p>Pneumatic sample conveying and laboratory equipment from Visakhapatnam.</p>
+          <div class="footer-cta">
+            <a href="contact.html" class="btn btn-primary">Request a quote</a>
+          </div>
         </div>
         <div>
           <h3>Pages</h3>
@@ -172,6 +178,7 @@
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 Kerri Engineering Works. All rights reserved.</p>
+        <p><a href="tel:+919848253198">+91 98482 53198</a> · <a href="mailto:kerri_srija@yahoo.co.in">kerri_srija@yahoo.co.in</a></p>
       </div>
     </div>
   </footer>
