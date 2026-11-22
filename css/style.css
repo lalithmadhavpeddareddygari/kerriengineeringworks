@@ -963,7 +963,7 @@ p {
 .footer-logo img {
   height: 36px;
   width: auto;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .footer-grid h3 {
@@ -1591,21 +1591,14 @@ html.js-enhanced .gallery-slide.is-active {
 
 /* Rich footer */
 .footer-grid {
-  padding-bottom: 8px;
+  padding-bottom: 4px;
+  margin-bottom: 32px;
 }
 
 .footer-about p {
   max-width: 32ch;
   line-height: 1.65;
-}
-
-.footer-cta {
-  margin-top: 20px;
-}
-
-.footer-cta .btn-primary {
-  font-size: 14px;
-  padding: 11px 18px;
+  margin: 0;
 }
 
 .footer-bottom {
