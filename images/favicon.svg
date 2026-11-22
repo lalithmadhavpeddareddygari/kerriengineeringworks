@@ -1,7 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
-    <rect x="2" y="2" width="56" height="56" rx="14" fill="#0a2744"/>
-    <path d="M12,38 Q12,22 28,22 L48,22" stroke="#0055a5" stroke-width="6" fill="none" stroke-linecap="round"/>
-    <polygon points="44,16 52,22 44,28" fill="#0055a5"/>
-    <rect x="26" y="18" width="10" height="8" rx="4" fill="#e63946"/>
-    <text x="30" y="50" fill="white" font-size="8" font-weight="800" text-anchor="middle" font-family="sans-serif" letter-spacing="2">KEW</text>
+<!-- Brand mark: kerri-mark-small-navy.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Kerri">
+  <g fill="#0E2A47">
+    <path d="M88 12 L48 12 A38 38 0 1 0 80.9 69" fill="none" stroke="#0E2A47" stroke-width="8"/>
+    <rect x="29" y="30" width="10" height="40" fill="#0E2A47"/>
+    <polygon points="39,48 55,30 67,30 39,61" fill="#0E2A47"/>
+    <rect x="40.5" y="58" width="30" height="11" rx="5.5" transform="rotate(38 55.5 63.5)" fill="#0E2A47"/>
+  </g>
 </svg>
