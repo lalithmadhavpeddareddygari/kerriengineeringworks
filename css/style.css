@@ -1240,9 +1240,15 @@ p {
 /* Split media sections */
 .split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(40px, 5vw, 72px);
+  align-items: start;
+  width: 100%;
+}
+
+.split > * {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .split__media {
@@ -1251,27 +1257,42 @@ p {
   border: 1px solid var(--kew-alloy);
   box-shadow: var(--shadow-soft);
   aspect-ratio: 4 / 3;
-  min-height: 360px;
+  min-height: 280px;
   background: var(--kew-mist);
+  width: 100%;
+  justify-self: stretch;
 }
 
 .split__media img {
   width: 100%;
   height: 100%;
-  min-height: 360px;
+  min-height: 0;
   object-fit: cover;
   display: block;
 }
 
+/* DOM often places media first; reverse = text left, image right */
 .split--reverse .split__media {
-  order: -1;
+  order: 2;
+}
+
+.split--reverse > :not(.split__media) {
+  order: 1;
 }
 
 @media (max-width: 900px) {
-  .split,
-  .split--reverse .split__media {
+  .split {
     grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .split--reverse .split__media,
+  .split--reverse > :not(.split__media) {
     order: unset;
+  }
+
+  .split__media {
+    order: -1;
   }
 
   .hero--bleed {
@@ -1721,12 +1742,17 @@ html.js-enhanced .reveal.is-visible {
 }
 
 .split--wide {
-  gap: clamp(32px, 5vw, 64px);
-  align-items: center;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(40px, 5vw, 72px);
+  align-items: start;
+}
+
+.split--wide.split--reverse {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
 }
 
 .split--asymmetric {
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
 }
 
 .split__main {
@@ -1734,15 +1760,18 @@ html.js-enhanced .reveal.is-visible {
 }
 
 .split__media--tall {
-  min-height: clamp(320px, 42vw, 480px);
+  aspect-ratio: 4 / 5;
+  min-height: 0;
+  max-height: min(520px, 70vh);
 }
 
 .split--wide .split__media--tall {
-  min-height: clamp(360px, 46vw, 520px);
+  max-height: min(540px, 72vh);
 }
 
 .system-showcase__copy {
-  max-width: 28rem;
+  max-width: 34rem;
+  padding-block: 8px;
 }
 
 .system-showcase__copy .h3 {
@@ -1950,8 +1979,14 @@ html.js-enhanced .reveal.is-visible {
   color: rgba(255, 255, 255, 0.88);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .split--wide,
+  .split--wide.split--reverse,
   .split--asymmetric {
     grid-template-columns: 1fr;
   }
+}
+
+.statement-band--light {
+  padding-inline: clamp(20px, 4vw, 32px);
 }

@@ -10,7 +10,7 @@ from playwright.async_api import async_playwright
 
 BASE_URL = "http://127.0.0.1:8765"
 OUT_DIR = Path("/opt/cursor/artifacts/kew-screenshots")
-VERSION = "v4"
+VERSION = "v5"
 
 PAGES = [
     ("index.html", "index"),
@@ -23,6 +23,8 @@ VIEWPORTS = {
     "desktop": {"width": 1440, "height": 900},
     "mobile": {"width": 390, "height": 844},
 }
+
+DESKTOP_CAPTURE_SCALE = 2
 
 
 async def wait_for_images(page) -> None:
@@ -71,7 +73,7 @@ async def scroll_full_page(page) -> None:
 async def capture_page(browser, path: str, slug: str, label: str) -> None:
     context = await browser.new_context(
         viewport=VIEWPORTS[label],
-        device_scale_factor=2 if label == "desktop" else 2,
+        device_scale_factor=DESKTOP_CAPTURE_SCALE if label == "desktop" else 2,
     )
     page = await context.new_page()
     wait = "domcontentloaded" if slug == "contact" else "load"
