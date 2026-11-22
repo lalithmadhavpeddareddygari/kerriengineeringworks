@@ -17,6 +17,7 @@ VERSION = "v7"
 PAGES = [
     ("index.html", "index"),
     ("products.html", "products"),
+    ("pneumatic-sample-conveying.html", "pneumatic-sample-conveying"),
     ("about.html", "about"),
     ("clients.html", "clients"),
     ("contact.html", "contact"),
