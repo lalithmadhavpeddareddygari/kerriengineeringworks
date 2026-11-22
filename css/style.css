@@ -1991,9 +1991,11 @@ html.js-enhanced .reveal.is-visible {
   padding-inline: clamp(20px, 4vw, 32px);
 }
 
-/* v6: hero, photos, hubs */
+/* v6/v7: hero crossfade — first slide visible without JS */
 .hero__media--stack {
-  position: relative;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .hero__slide {
@@ -2002,12 +2004,36 @@ html.js-enhanced .reveal.is-visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 42%;
   opacity: 0;
   transition: opacity 1.4s var(--ease);
 }
 
+.hero__slide:first-child,
 .hero__slide.is-active {
   opacity: 1;
+}
+
+html.js-enhanced .hero--crossfade .hero__slide {
+  opacity: 0;
+}
+
+html.js-enhanced .hero--crossfade .hero__slide.is-active {
+  opacity: 1;
+}
+
+.hero__content .lead--light {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Above-the-fold blocks stay readable without waiting for scroll reveal */
+html.js-enhanced .page-hero .reveal,
+html.js-enhanced .hero .reveal,
+html.js-enhanced .stats-band .reveal,
+html.js-enhanced .clients-feature .reveal,
+html.js-enhanced .clients-feature .reveal * {
+  opacity: 1;
+  transform: none;
 }
 
 .hero-eyebrow {
@@ -2153,12 +2179,141 @@ html.js-enhanced .reveal.is-visible {
   margin-top: 28px;
 }
 
+.split__media--card {
+  aspect-ratio: 4 / 3;
+  max-width: 520px;
+  margin-inline: auto;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.split__media--card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.img-lifted {
+  filter: brightness(1.14) contrast(1.04);
+}
+
+/* Home v7 layout */
+.home-intro__inner {
+  max-width: 42rem;
+}
+
+.home-visual-strip {
+  margin-top: 40px;
+  max-height: min(22rem, 42vw);
+  overflow: hidden;
+}
+
+.home-visual-strip img {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  object-fit: cover;
+  object-position: center 55%;
+}
+
+.home-product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.home-product-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--kew-alloy);
+  background: var(--kew-white);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.home-product-card:hover {
+  border-color: var(--kew-blue);
+  box-shadow: var(--shadow-soft);
+}
+
+.home-product-card__media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--kew-mist);
+}
+
+.home-product-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-product-card__body {
+  padding: 18px 20px 22px;
+}
+
+.home-product-card__body .h3 {
+  margin: 0 0 6px;
+  color: var(--kew-navy);
+  font-size: 1.05rem;
+}
+
+.home-product-card__body p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--kew-steel);
+  line-height: 1.5;
+}
+
+.home-product-card__media .photo-placeholder {
+  min-height: 0;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+}
+
+.home-lifecycle {
+  padding-top: 8px;
+}
+
+.home-lifecycle .lifecycle-grid {
+  margin-top: 24px;
+}
+
+.mii-band--standalone {
+  padding: 28px 0;
+  background: var(--kew-mist);
+  border-block: 1px solid var(--kew-alloy);
+  text-align: center;
+}
+
+.mii-band--standalone .mii-band {
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 36rem;
+}
+
+@media (max-width: 1000px) {
+  .home-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .home-product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero__slide {
     transition: none;
   }
 
-  .hero__slide:not(.is-active) {
+  html.js-enhanced .hero--crossfade .hero__slide:not(.is-active):not(:first-child) {
     display: none;
   }
 }

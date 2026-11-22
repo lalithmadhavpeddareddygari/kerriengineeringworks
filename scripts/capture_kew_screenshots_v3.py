@@ -10,7 +10,7 @@ from playwright.async_api import async_playwright
 
 BASE_URL = "http://127.0.0.1:8765"
 OUT_DIR = Path("/opt/cursor/artifacts/kew-screenshots")
-VERSION = "v6"
+VERSION = "v7"
 
 PAGES = [
     ("index.html", "index"),
@@ -75,6 +75,35 @@ async def scroll_full_page(page) -> None:
     )
 
 
+async def wait_for_hero(page) -> None:
+    await page.evaluate(
+        """async () => {
+      const slide = document.querySelector('.hero__slide.is-active, .hero__slide');
+      if (!slide || !(slide instanceof HTMLImageElement)) return;
+      await new Promise((resolve) => {
+        if (slide.complete && slide.naturalWidth > 0) {
+          resolve();
+          return;
+        }
+        const done = () => resolve();
+        slide.addEventListener('load', done, { once: true });
+        slide.addEventListener('error', done, { once: true });
+        setTimeout(done, 15000);
+      });
+    }"""
+    )
+
+
+async def force_reveals_visible(page) -> None:
+    await page.evaluate(
+        """() => {
+      document.querySelectorAll('.reveal').forEach((el) => {
+        el.classList.add('is-visible');
+      });
+    }"""
+    )
+
+
 async def capture_page(browser, path: str, slug: str, label: str) -> None:
     context = await browser.new_context(
         viewport=VIEWPORTS[label],
@@ -83,11 +112,23 @@ async def capture_page(browser, path: str, slug: str, label: str) -> None:
     page = await context.new_page()
     wait = "domcontentloaded" if slug == "contact" else "load"
     await page.goto(f"{BASE_URL}/{path}", wait_until=wait, timeout=90000)
-    await page.wait_for_timeout(1200)
+    await page.wait_for_timeout(400)
+    if slug == "index":
+        await wait_for_hero(page)
+        await page.wait_for_timeout(600)
+    await force_reveals_visible(page)
+    await page.evaluate("window.scrollTo({ top: 0, behavior: 'instant' })")
+    await page.wait_for_timeout(300)
+    if slug == "index":
+        await wait_for_hero(page)
     await scroll_full_page(page)
     await wait_for_images(page)
+    await force_reveals_visible(page)
     await scroll_full_page(page)
     await wait_for_images(page)
+    await force_reveals_visible(page)
+    await page.evaluate("window.scrollTo({ top: 0, behavior: 'instant' })")
+    await page.wait_for_timeout(200)
     out = OUT_DIR / f"{slug}-{label}-{VERSION}.png"
     await page.screenshot(path=str(out), full_page=True)
     await context.close()

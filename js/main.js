@@ -66,6 +66,10 @@
     });
   }
 
+  document
+    .querySelectorAll(".page-hero .reveal, .hero .reveal, .clients-feature .reveal")
+    .forEach(markVisible);
+
   if (revealEls.length) {
     if (reduceMotion) {
       revealEls.forEach(markVisible);
