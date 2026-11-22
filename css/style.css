@@ -617,6 +617,17 @@ p {
   color: var(--kew-steel);
 }
 
+.clients-strip__note {
+  margin: 20px 0 0;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--kew-navy);
+}
+
+.section--navy .clients-strip__note {
+  color: rgba(255, 255, 255, 0.92);
+}
+
 /* Photo strip */
 .photo-strip {
   display: grid;
