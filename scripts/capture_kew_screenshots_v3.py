@@ -3,7 +3,9 @@
 
 from __future__ import annotations
 
+import argparse
 import asyncio
+import sys
 from pathlib import Path
 
 from playwright.async_api import async_playwright
@@ -104,18 +106,56 @@ async def force_reveals_visible(page) -> None:
     )
 
 
-async def capture_page(browser, path: str, slug: str, label: str) -> None:
+async def assert_index_images_loaded(page) -> None:
+    ok = await page.evaluate(
+        """() => {
+      const checks = [
+        '.home-visual-strip img',
+        '.home-product-card img.img-lifted',
+        '.home-product-card img[src*="horizontal-station"]',
+      ];
+      return checks.every((sel) => {
+        const img = document.querySelector(sel);
+        return img && img.complete && img.naturalWidth > 0;
+      });
+    }"""
+    )
+    if not ok:
+        await wait_for_images(page)
+        ok = await page.evaluate(
+            """() => {
+        const imgs = document.querySelectorAll(
+          '.home-visual-strip img, .home-product-card__media img'
+        );
+        return Array.from(imgs).every(
+          (img) => img.complete && img.naturalWidth > 0
+        );
+      }"""
+        )
+    if not ok:
+        raise RuntimeError("index.html: critical images did not finish loading")
+
+
+async def capture_page(
+    browser, path: str, slug: str, label: str, version: str
+) -> None:
     context = await browser.new_context(
         viewport=VIEWPORTS[label],
         device_scale_factor=DESKTOP_CAPTURE_SCALE if label == "desktop" else 2,
     )
     page = await context.new_page()
-    wait = "domcontentloaded" if slug == "contact" else "load"
-    await page.goto(f"{BASE_URL}/{path}", wait_until=wait, timeout=90000)
+    if slug == "contact":
+        wait_until = "domcontentloaded"
+    elif slug == "index":
+        wait_until = "networkidle"
+    else:
+        wait_until = "load"
+    await page.goto(f"{BASE_URL}/{path}", wait_until=wait_until, timeout=90000)
     await page.wait_for_timeout(400)
     if slug == "index":
         await wait_for_hero(page)
-        await page.wait_for_timeout(600)
+        await wait_for_images(page)
+        await page.wait_for_timeout(400)
     await force_reveals_visible(page)
     await page.evaluate("window.scrollTo({ top: 0, behavior: 'instant' })")
     await page.wait_for_timeout(300)
@@ -128,20 +168,49 @@ async def capture_page(browser, path: str, slug: str, label: str) -> None:
     await wait_for_images(page)
     await force_reveals_visible(page)
     await page.evaluate("window.scrollTo({ top: 0, behavior: 'instant' })")
-    await page.wait_for_timeout(200)
-    out = OUT_DIR / f"{slug}-{label}-{VERSION}.png"
+    await page.wait_for_timeout(400)
+    if slug == "index":
+        await wait_for_images(page)
+        await assert_index_images_loaded(page)
+    out = OUT_DIR / f"{slug}-{label}-{version}.png"
     await page.screenshot(path=str(out), full_page=True)
     await context.close()
     print(f"wrote {out}")
 
 
 async def main() -> None:
+    parser = argparse.ArgumentParser(description="Capture KEW page screenshots")
+    parser.add_argument(
+        "--version",
+        default=VERSION,
+        help="Filename suffix (default: %(default)s)",
+    )
+    parser.add_argument("--slug", help="Capture only this page slug (e.g. index)")
+    parser.add_argument(
+        "--viewport",
+        choices=("desktop", "mobile"),
+        help="Capture only this viewport (requires --slug)",
+    )
+    args = parser.parse_args()
+    version = args.version
+
+    pages = PAGES
+    if args.slug:
+        pages = [(p, s) for p, s in PAGES if s == args.slug]
+        if not pages:
+            print(f"unknown slug: {args.slug}", file=sys.stderr)
+            sys.exit(1)
+
+    viewports = list(VIEWPORTS.keys())
+    if args.viewport:
+        viewports = [args.viewport]
+
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     async with async_playwright() as p:
         browser = await p.chromium.launch()
-        for path, slug in PAGES:
-            for label in VIEWPORTS:
-                await capture_page(browser, path, slug, label)
+        for path, slug in pages:
+            for label in viewports:
+                await capture_page(browser, path, slug, label, version)
         await browser.close()
 
 

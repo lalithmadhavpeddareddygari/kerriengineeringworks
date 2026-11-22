@@ -2205,14 +2205,17 @@ html.js-enhanced .clients-feature .reveal * {
 
 .home-visual-strip {
   margin-top: 40px;
+  min-height: 240px;
   max-height: min(26rem, 46vw);
   overflow: hidden;
 }
 
 .home-visual-strip img {
+  display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
   min-height: 240px;
+  max-height: min(26rem, 46vw);
   object-fit: cover;
   object-position: center 78%;
 }
