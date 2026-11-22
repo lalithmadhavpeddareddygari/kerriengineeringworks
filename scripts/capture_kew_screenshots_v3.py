@@ -96,6 +96,26 @@ async def wait_for_hero(page) -> None:
     )
 
 
+async def wait_for_contact_embeds(page) -> None:
+    await page.wait_for_timeout(800)
+    try:
+        await page.wait_for_selector(".map-wrap iframe", timeout=20000)
+        map_frame = page.frame_locator(".map-wrap iframe")
+        await page.locator(".map-wrap").scroll_into_view_if_needed()
+        await page.wait_for_timeout(2500)
+        await map_frame.locator("body").wait_for(state="attached", timeout=15000)
+    except Exception:
+        pass
+    try:
+        await page.wait_for_selector(
+            "#hubspot-form-embed iframe, .hubspot-wrap__target iframe",
+            timeout=45000,
+        )
+    except Exception:
+        pass
+    await page.wait_for_timeout(1500)
+
+
 async def force_reveals_visible(page) -> None:
     await page.evaluate(
         """() => {
@@ -144,9 +164,7 @@ async def capture_page(
         device_scale_factor=DESKTOP_CAPTURE_SCALE if label == "desktop" else 2,
     )
     page = await context.new_page()
-    if slug == "contact":
-        wait_until = "domcontentloaded"
-    elif slug == "index":
+    if slug in ("contact", "index"):
         wait_until = "networkidle"
     else:
         wait_until = "load"
@@ -172,6 +190,10 @@ async def capture_page(
     if slug == "index":
         await wait_for_images(page)
         await assert_index_images_loaded(page)
+    if slug == "contact":
+        await wait_for_contact_embeds(page)
+        await scroll_full_page(page)
+        await wait_for_contact_embeds(page)
     out = OUT_DIR / f"{slug}-{label}-{version}.png"
     await page.screenshot(path=str(out), full_page=True)
     await context.close()

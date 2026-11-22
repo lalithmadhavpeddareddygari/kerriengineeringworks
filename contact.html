@@ -15,6 +15,7 @@
   <meta property="og:image" content="https://kerriengineeringworks.in/images/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://js-na2.hsforms.net" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="images/brand/kerri-mark-small-navy.svg" type="image/svg+xml">
@@ -70,17 +71,18 @@
 
   <main id="main">
     <div class="page-hero page-hero--compact">
-      <div class="container reveal">
-        <h1 class="h1">Request a quote</h1>
-        <p class="lead">Call or email with layout drawings and distance estimates, or use the form below.</p>
+      <div class="container">
+        <p class="label label--blue">Contact us</p>
+        <h1 class="h1">Get in touch</h1>
+        <p class="lead">Request a quote, or call with layout drawings and distance estimates—our team responds from Visakhapatnam.</p>
       </div>
     </div>
 
     <section class="section">
-      <div class="container contact-grid reveal">
+      <div class="container contact-grid">
         <div>
-          <h2 class="h2">Kerri Engineering Works</h2>
-          <p>We supply pneumatic sample conveying systems, macro etching units and dust conveying for steel, cement, foundry and aluminium plants.</p>
+          <h2 class="h2">We&rsquo;d love to hear from you</h2>
+          <p>Whether you need pneumatic sample conveying, macro etching, dust transport or a custom laboratory layout, we can scope your plant route.</p>
 
           <div class="contact-detail">
             <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s7-5.5 7-12a7 7 0 1 0-14 0c0 6.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
@@ -107,32 +109,38 @@
           </div>
         </div>
 
-        <div class="hubspot-wrap" id="hubspot-form">
-          <script charset="utf-8" type="text/javascript" src="//js-na2.hsforms.net/forms/embed/v2.js"></script>
+        <div class="hubspot-wrap">
+          <h2 class="h3 hubspot-wrap__title">Send an enquiry</h2>
+          <div id="hubspot-form-embed" class="hubspot-wrap__target"></div>
+          <script charset="utf-8" type="text/javascript" src="https://js-na2.hsforms.net/forms/embed/v2.js"></script>
           <script>
             hbspt.forms.create({
               region: "na2",
               portalId: "246104806",
-              formId: "73a6f065-94f6-4731-8714-75c55c4e1720"
+              formId: "73a6f065-94f6-4731-8714-75c55c4e1720",
+              target: "#hubspot-form-embed"
             });
           </script>
         </div>
       </div>
     </section>
 
-    <section class="section section--mist">
-      <div class="container reveal">
-        <p class="label label--blue">Location</p>
+    <section class="section section--mist" aria-labelledby="find-us">
+      <div class="container">
+        <p class="label label--blue" id="find-us">Find us</p>
         <span class="accent-rule" aria-hidden="true"></span>
-        <h2 class="h2">Works address</h2>
-        <div class="map-wrap">
+        <h2 class="h2">Our location</h2>
+        <p class="lead">F/C: 90/14, &rsquo;D&rsquo; Block, Autonagar, Visakhapatnam, A.P 530012</p>
+        <div class="map-wrap map-container">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.5!2d83.32!3d17.72!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAutonagar%2C+Visakhapatnam!5e0!3m2!1sen!2sin!4v1700000000000"
-            width="600"
+            width="100%"
             height="400"
-            loading="lazy"
+            style="border:0"
+            allowfullscreen=""
+            loading="eager"
             referrerpolicy="no-referrer-when-downgrade"
-            title="Kerri Engineering Works, Autonagar, Visakhapatnam"></iframe>
+            title="Kerri Engineering Works Location"></iframe>
         </div>
       </div>
     </section>

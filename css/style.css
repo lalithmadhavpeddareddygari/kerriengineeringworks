@@ -900,6 +900,21 @@ p {
   padding: 24px;
   background: var(--kew-white);
   min-height: 480px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.hubspot-wrap__title {
+  margin: 0 0 16px;
+  color: var(--kew-navy);
+}
+
+.hubspot-wrap__target {
+  min-height: 420px;
+}
+
+.hubspot-wrap__target iframe {
+  width: 100% !important;
 }
 
 .map-wrap {
@@ -1189,6 +1204,18 @@ p {
 
 .stats-band .stat-desc {
   color: var(--kew-label-on-dark);
+}
+
+.stat-sublabel {
+  margin: 6px 0 0;
+  font-size: 0.8125rem;
+  color: var(--kew-steel);
+  font-weight: 500;
+}
+
+.stats-band .stat-sublabel {
+  color: rgba(255, 255, 255, 0.72);
+  margin-top: 4px;
 }
 
 .stats-band .stat-cell:first-child .data-lg::before {
