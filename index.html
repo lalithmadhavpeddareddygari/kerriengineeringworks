@@ -133,7 +133,7 @@
           <article class="product-card">
             <div class="product-card__media">
               <!-- PLACEHOLDER: Horizontal C-loop station product photo -->
-              <img src="images/installations/03.jpg" alt="Horizontal C-loop sample receiving station" width="1000" height="705" loading="lazy" decoding="async">
+              <img src="images/installations/03.jpg" alt="Horizontal C-loop sample receiving station" width="1000" height="705" loading="eager" decoding="async" fetchpriority="high">
             </div>
             <div class="product-card__body">
               <p class="label">Horizontal system</p>
@@ -145,7 +145,7 @@
           <article class="product-card">
             <div class="product-card__media">
               <!-- PLACEHOLDER: Vertical upright station product photo -->
-              <img src="images/installations/05.jpg" alt="Vertical sample receiving station" width="1000" height="585" loading="lazy" decoding="async">
+              <img src="images/installations/05.jpg" alt="Vertical sample receiving station" width="1000" height="585" loading="eager" decoding="async" fetchpriority="high">
             </div>
             <div class="product-card__body">
               <p class="label">Vertical system</p>
@@ -272,15 +272,15 @@
           <button class="gallery-nav gallery-nav--prev" type="button" aria-label="Previous photo">&#8249;</button>
           <div class="gallery-track" id="gallery-track" tabindex="0" role="region" aria-label="Installation photographs">
             <!-- PLACEHOLDER: gallery slides 01–09 -->
-            <figure class="gallery-slide"><div class="gallery-slide__frame"><img src="images/installations/01.jpg" alt="" width="550" height="1000" loading="lazy" decoding="async"></div></figure>
-            <figure class="gallery-slide"><div class="gallery-slide__frame"><img src="images/installations/02.jpg" alt="" width="563" height="1000" loading="lazy" decoding="async"></div></figure>
-            <figure class="gallery-slide"><div class="gallery-slide__frame"><img src="images/installations/03.jpg" alt="" width="1000" height="705" loading="lazy" decoding="async"></div></figure>
-            <figure class="gallery-slide"><div class="gallery-slide__frame"><img src="images/installations/04.jpg" alt="" width="1000" height="563" loading="lazy" decoding="async"></div></figure>
-            <figure class="gallery-slide"><div class="gallery-slide__frame"><img src="images/installations/05.jpg" alt="" width="1000" height="585" loading="lazy" decoding="async"></div></figure>
-            <figure class="gallery-slide"><div class="gallery-slide__frame"><img src="images/installations/06.jpg" alt="" width="766" height="1000" loading="lazy" decoding="async"></div></figure>
-            <figure class="gallery-slide"><div class="gallery-slide__frame"><img src="images/installations/07.jpg" alt="" width="621" height="1000" loading="lazy" decoding="async"></div></figure>
-            <figure class="gallery-slide"><div class="gallery-slide__frame"><img src="images/installations/08.jpg" alt="" width="629" height="1000" loading="lazy" decoding="async"></div></figure>
-            <figure class="gallery-slide"><div class="gallery-slide__frame"><img src="images/installations/09.jpg" alt="" width="1000" height="450" loading="lazy" decoding="async"></div></figure>
+            <figure class="gallery-slide"><div class="gallery-slide__frame"><img src="images/installations/01.jpg" alt="" width="550" height="1000" loading="eager" decoding="async"></div></figure>
+            <figure class="gallery-slide"><div class="gallery-slide__frame"><img src="images/installations/02.jpg" alt="" width="563" height="1000" loading="eager" decoding="async"></div></figure>
+            <figure class="gallery-slide"><div class="gallery-slide__frame"><img src="images/installations/03.jpg" alt="" width="1000" height="705" loading="eager" decoding="async"></div></figure>
+            <figure class="gallery-slide"><div class="gallery-slide__frame"><img src="images/installations/04.jpg" alt="" width="1000" height="563" loading="eager" decoding="async"></div></figure>
+            <figure class="gallery-slide"><div class="gallery-slide__frame"><img src="images/installations/05.jpg" alt="" width="1000" height="585" loading="eager" decoding="async"></div></figure>
+            <figure class="gallery-slide"><div class="gallery-slide__frame"><img src="images/installations/06.jpg" alt="" width="766" height="1000" loading="eager" decoding="async"></div></figure>
+            <figure class="gallery-slide"><div class="gallery-slide__frame"><img src="images/installations/07.jpg" alt="" width="621" height="1000" loading="eager" decoding="async"></div></figure>
+            <figure class="gallery-slide"><div class="gallery-slide__frame"><img src="images/installations/08.jpg" alt="" width="629" height="1000" loading="eager" decoding="async"></div></figure>
+            <figure class="gallery-slide"><div class="gallery-slide__frame"><img src="images/installations/09.jpg" alt="" width="1000" height="450" loading="eager" decoding="async"></div></figure>
           </div>
           <button class="gallery-nav gallery-nav--next" type="button" aria-label="Next photo">&#8250;</button>
         </div>
@@ -305,10 +305,13 @@
 
     <section class="section section--mist">
       <div class="container reveal">
-        <div class="video-slot" aria-label="Product demo video — coming soon">
-          <span class="video-slot__label">Product demo · placeholder</span>
-          <p>Reserved for a future Kerri sample conveying demonstration video. No autoplay.</p>
-          <a href="products.html#demo-video" class="text-link">View on products page</a>
+        <div class="video-slot video-slot--poster" aria-label="Product demo video — coming soon">
+          <img class="video-slot__poster" src="images/installations/02.jpg" alt="" width="563" height="1000" loading="lazy" decoding="async">
+          <div class="video-slot__content">
+            <span class="video-slot__label">Product demo · placeholder</span>
+            <p>Reserved for a future Kerri sample conveying demonstration video. No autoplay.</p>
+            <a href="products.html#demo-video" class="text-link text-link--on-dark">View on products page</a>
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,8 @@
 /* Kerri Engineering Works — site behaviour */
 
 (function () {
+  document.documentElement.classList.add("js-enhanced");
+
   const navToggle = document.getElementById("navToggle");
   const headerNav = document.getElementById("headerNav");
   const siteHeader = document.getElementById("siteHeader");
@@ -44,27 +46,48 @@
     });
   });
 
-  /* Reveal on scroll */
+  /* Reveal on scroll — never leave content hidden */
   const revealEls = document.querySelectorAll(".reveal");
-  if (revealEls.length && "IntersectionObserver" in window) {
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  function markVisible(el) {
+    el.classList.add("is-visible");
+  }
+
+  function revealInViewport() {
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    revealEls.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < vh * 0.94 && rect.bottom > 0) {
+        markVisible(el);
+      }
+    });
+  }
+
+  if (revealEls.length) {
     if (reduceMotion) {
-      revealEls.forEach((el) => el.classList.add("is-visible"));
-    } else {
+      revealEls.forEach(markVisible);
+    } else if ("IntersectionObserver" in window) {
       const revealObs = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
+              markVisible(entry.target);
               revealObs.unobserve(entry.target);
             }
           });
         },
-        { rootMargin: "0px 0px -40px 0px", threshold: 0.12 }
+        { rootMargin: "0px 0px 5% 0px", threshold: 0.02 }
       );
       revealEls.forEach((el) => revealObs.observe(el));
+      revealInViewport();
+      window.addEventListener("load", revealInViewport);
+      window.addEventListener("resize", revealInViewport);
+      window.setTimeout(() => revealEls.forEach(markVisible), 4000);
+    } else {
+      revealEls.forEach(markVisible);
     }
   }
 
@@ -73,7 +96,7 @@
   if (track) {
     const slides = Array.from(track.querySelectorAll(".gallery-slide"));
     let current = 0;
-    const reduceMotion = window.matchMedia(
+    const galleryReduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
@@ -116,7 +139,7 @@
       current = (i + slides.length) % slides.length;
       track.scrollTo({
         left: slideScrollLeft(current),
-        behavior: instant || reduceMotion ? "auto" : "smooth",
+        behavior: instant || galleryReduceMotion ? "auto" : "smooth",
       });
       updateActive(current);
     }
@@ -169,7 +192,10 @@
       { passive: true }
     );
 
-    goTo(0, true);
+    window.requestAnimationFrame(() => {
+      goTo(0, true);
+      updateActive(0);
+    });
     window.addEventListener("load", () => goTo(current, true));
   }
 })();
