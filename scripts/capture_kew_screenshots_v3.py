@@ -29,7 +29,11 @@ PAGES = [
 VIEWPORTS = {
     "desktop": {"width": 1440, "height": 900},
     "mobile": {"width": 390, "height": 844},
+    "laptop1366": {"width": 1366, "height": 768},
+    "laptop1440": {"width": 1440, "height": 900},
 }
+
+LAPTOP_FIRST_VIEW_KEYS = ("laptop1366", "laptop1440")
 
 DESKTOP_CAPTURE_SCALE = 2
 
@@ -164,12 +168,47 @@ async def assert_index_images_loaded(page) -> None:
         raise RuntimeError("index.html: critical images did not finish loading")
 
 
+async def assert_stats_in_viewport(page) -> dict:
+    return await page.evaluate(
+        """() => {
+      const band = document.querySelector(
+        ".stats-band--hero-foot, main .stats-band"
+      );
+      if (!band) {
+        return { ok: false, reason: "no stats band" };
+      }
+      const rect = band.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const visible =
+        rect.top >= -2 &&
+        rect.bottom <= vh + 2 &&
+        rect.height > 0;
+      return {
+        ok: visible,
+        top: rect.top,
+        bottom: rect.bottom,
+        vh,
+      };
+    }"""
+    )
+
+
 async def capture_page(
-    browser, path: str, slug: str, label: str, version: str
+    browser,
+    path: str,
+    slug: str,
+    label: str,
+    version: str,
+    *,
+    full_page: bool = True,
 ) -> None:
+    viewport = VIEWPORTS[label]
+    scale = DESKTOP_CAPTURE_SCALE if label in ("desktop", "laptop1366", "laptop1440") else 2
+    if not full_page:
+        scale = 1
     context = await browser.new_context(
-        viewport=VIEWPORTS[label],
-        device_scale_factor=DESKTOP_CAPTURE_SCALE if label == "desktop" else 2,
+        viewport=viewport,
+        device_scale_factor=scale,
     )
     page = await context.new_page()
     if slug in ("contact", "index"):
@@ -185,28 +224,43 @@ async def capture_page(
     await force_reveals_visible(page)
     await page.evaluate("window.scrollTo({ top: 0, behavior: 'instant' })")
     await page.wait_for_timeout(300)
-    if slug == "index":
-        await wait_for_hero(page)
-    await scroll_full_page(page)
-    await wait_for_images(page)
-    await force_reveals_visible(page)
-    await scroll_full_page(page)
-    await wait_for_images(page)
-    await force_reveals_visible(page)
-    await page.evaluate("window.scrollTo({ top: 0, behavior: 'instant' })")
-    await page.wait_for_timeout(400)
-    if slug == "index":
-        await wait_for_images(page)
-        await assert_index_images_loaded(page)
-    if slug == "contact":
-        await wait_for_contact_embeds(page)
+    if full_page:
+        if slug == "index":
+            await wait_for_hero(page)
         await scroll_full_page(page)
-        await wait_for_contact_embeds(page)
+        await wait_for_images(page)
+        await force_reveals_visible(page)
+        await scroll_full_page(page)
+        await wait_for_images(page)
+        await force_reveals_visible(page)
+        await page.evaluate("window.scrollTo({ top: 0, behavior: 'instant' })")
+        await page.wait_for_timeout(400)
+        if slug == "index":
+            await wait_for_images(page)
+            await assert_index_images_loaded(page)
+        if slug == "contact":
+            await wait_for_contact_embeds(page)
+            await scroll_full_page(page)
+            await wait_for_contact_embeds(page)
+    else:
+        await wait_for_images(page)
+        if slug == "index":
+            await wait_for_hero(page)
     await enable_capture_mode(page)
     await page.evaluate("window.scrollTo({ top: 0, behavior: 'instant' })")
     await page.wait_for_timeout(200)
-    out = OUT_DIR / f"{slug}-{label}-{version}.png"
-    await page.screenshot(path=str(out), full_page=True)
+    if slug == "index" and not full_page:
+        check = await assert_stats_in_viewport(page)
+        if not check.get("ok"):
+            raise RuntimeError(f"index first view: stats not in viewport: {check}")
+        print(f"stats in viewport OK ({label}): {check}")
+    if full_page:
+        suffix = label
+        out = OUT_DIR / f"{slug}-{suffix}-{version}.png"
+    else:
+        short = "1366" if label == "laptop1366" else "1440"
+        out = OUT_DIR / f"{slug}-firstview-{short}-{version}.png"
+    await page.screenshot(path=str(out), full_page=full_page)
     await context.close()
     print(f"wrote {out}")
 
@@ -225,8 +279,18 @@ async def main() -> None:
     )
     parser.add_argument(
         "--viewport",
-        choices=("desktop", "mobile"),
-        help="Capture only this viewport (requires --slug)",
+        choices=tuple(VIEWPORTS.keys()),
+        help="Capture only this viewport (requires --slug unless --first-view)",
+    )
+    parser.add_argument(
+        "--first-view",
+        action="store_true",
+        help="Viewport-only capture of index at 1366×768 and 1440×900",
+    )
+    parser.add_argument(
+        "--full-page",
+        action="store_true",
+        help="Full-page captures (default when not using --first-view only)",
     )
     args = parser.parse_args()
     version = args.version
@@ -245,16 +309,31 @@ async def main() -> None:
             print(f"unknown slug: {args.slug}", file=sys.stderr)
             sys.exit(1)
 
-    viewports = list(VIEWPORTS.keys())
-    if args.viewport:
-        viewports = [args.viewport]
-
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     async with async_playwright() as p:
         browser = await p.chromium.launch()
-        for path, slug in pages:
-            for label in viewports:
-                await capture_page(browser, path, slug, label, version)
+        if args.first_view:
+            for label in LAPTOP_FIRST_VIEW_KEYS:
+                await capture_page(
+                    browser,
+                    "index.html",
+                    "index",
+                    label,
+                    version,
+                    full_page=False,
+                )
+        run_full = args.full_page or (not args.first_view)
+        if run_full:
+            viewports = ["desktop"]
+            if args.viewport:
+                viewports = [args.viewport]
+            elif not args.first_view and not args.slugs and not args.slug:
+                viewports = ["desktop"]
+            for path, slug in pages:
+                for label in viewports:
+                    await capture_page(
+                        browser, path, slug, label, version, full_page=True
+                    )
         await browser.close()
 
 
