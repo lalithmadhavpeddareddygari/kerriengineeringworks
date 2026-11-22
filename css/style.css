@@ -204,6 +204,8 @@ p {
 }
 
 .clients-feature p.clients-feature__reach,
+.clients-feature p.clients-feature__kicker,
+.clients-feature__intro p,
 .clients-feature .clients-feature__industries,
 .clients-feature .clients-feature__industries p {
   max-width: none;
@@ -2103,7 +2105,7 @@ html.js-enhanced .reveal.is-visible {
 }
 
 .clients-feature__kicker {
-  margin: 0 0 10px;
+  margin: 0 auto 6px;
   text-align: center;
   font-family: var(--kew-font-condensed);
   font-size: clamp(1rem, 1.6vw, 1.125rem);
@@ -2128,12 +2130,17 @@ html.js-enhanced .reveal.is-visible {
 }
 
 .clients-feature__intro--tight .h1 {
-  margin-bottom: 8px;
+  margin: 0 0 6px;
   font-size: clamp(1.65rem, 2.8vw, 2.15rem);
 }
 
 .clients-feature--above-fold .clients-feature__statement {
+  margin: 0;
   font-size: clamp(1rem, 1.5vw, 1.125rem);
+}
+
+.clients-feature__intro .clients-feature__count-label {
+  margin: 6px 0 14px;
 }
 
 .clients-wordmark-grid--above-fold {
