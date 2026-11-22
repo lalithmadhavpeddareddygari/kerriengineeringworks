@@ -10,13 +10,18 @@ from playwright.async_api import async_playwright
 
 BASE_URL = "http://127.0.0.1:8765"
 OUT_DIR = Path("/opt/cursor/artifacts/kew-screenshots")
-VERSION = "v5"
+VERSION = "v6"
 
 PAGES = [
     ("index.html", "index"),
     ("products.html", "products"),
     ("about.html", "about"),
+    ("clients.html", "clients"),
     ("contact.html", "contact"),
+    ("horizontal-system.html", "horizontal-system"),
+    ("vertical-system.html", "vertical-system"),
+    ("macro-etching.html", "macro-etching"),
+    ("dust-conveying.html", "dust-conveying"),
 ]
 
 VIEWPORTS = {

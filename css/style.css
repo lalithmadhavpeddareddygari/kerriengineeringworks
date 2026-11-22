@@ -1990,3 +1990,175 @@ html.js-enhanced .reveal.is-visible {
 .statement-band--light {
   padding-inline: clamp(20px, 4vw, 32px);
 }
+
+/* v6: hero, photos, hubs */
+.hero__media--stack {
+  position: relative;
+}
+
+.hero__slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.4s var(--ease);
+}
+
+.hero__slide.is-active {
+  opacity: 1;
+}
+
+.hero-eyebrow {
+  font-family: var(--kew-font-condensed);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--kew-label-on-dark);
+  margin: 0 0 12px;
+}
+
+.photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 280px;
+  padding: 32px;
+  background: var(--kew-mist);
+  border: 1px dashed var(--kew-alloy);
+  border-radius: var(--radius-lg);
+}
+
+.photo-placeholder--wide {
+  margin: 0;
+  min-height: 200px;
+  border-radius: 0;
+  border-inline: none;
+}
+
+.photo-placeholder__title {
+  margin: 0;
+  font-family: var(--kew-font-condensed);
+  font-weight: 700;
+  color: var(--kew-navy);
+}
+
+.photo-placeholder__note {
+  margin: 8px 0 0;
+  font-size: 0.9375rem;
+  color: var(--kew-steel);
+}
+
+.product-hub {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.product-hub__card {
+  padding: 24px;
+  border: 1px solid var(--kew-alloy);
+  background: var(--kew-white);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.product-hub__card:hover {
+  border-color: var(--kew-blue);
+  box-shadow: var(--shadow-soft);
+}
+
+.product-hub__card .h3 {
+  margin: 0 0 8px;
+  color: var(--kew-navy);
+}
+
+.product-hub__card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--kew-steel);
+}
+
+@media (min-width: 768px) {
+  .product-hub {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.value-pillars {
+  display: grid;
+  gap: 16px;
+}
+
+.value-pillars article {
+  border-top: 3px solid var(--kew-blue);
+  padding-top: 16px;
+}
+
+.sector-grid {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .sector-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.sector-card {
+  padding: 24px;
+  border: 1px solid var(--kew-alloy);
+  background: var(--kew-white);
+}
+
+.sector-card__names {
+  font-size: 0.9rem;
+  color: var(--kew-steel);
+  margin-top: 12px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.photo-grid img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+.crumb {
+  font-size: 0.875rem;
+  color: var(--kew-steel);
+  margin: 0 0 12px;
+}
+
+.crumb a {
+  color: var(--kew-blue);
+}
+
+.center-link {
+  text-align: center;
+  margin-top: 28px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__slide {
+    transition: none;
+  }
+
+  .hero__slide:not(.is-active) {
+    display: none;
+  }
+}

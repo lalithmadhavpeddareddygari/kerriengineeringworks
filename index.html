@@ -72,6 +72,7 @@
           <li><a href="index.html" class="nav-link" aria-current="page">Home</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="products.html" class="nav-link">Products</a></li>
+          <li><a href="clients.html" class="nav-link">Clients</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
         <a href="contact.html" class="btn btn-primary header-cta">Request a quote</a>
@@ -80,14 +81,15 @@
   </header>
 
   <main id="main">
-    <section class="hero hero--bleed" aria-label="Introduction">
-      <div class="hero__media">
-        <!-- PLACEHOLDER: replace with cleared KEW hero photograph -->
-        <img src="images/installations/06.jpg" alt="" width="1600" height="1200" loading="eager" decoding="async">
+    <section class="hero hero--bleed hero--crossfade" aria-label="Introduction">
+      <div class="hero__media hero__media--stack">
+        <img class="hero__slide is-active" src="images/kew/hero-pipeline-truss-toned.jpg" alt="" width="1600" height="900" loading="eager" decoding="async" fetchpriority="high">
+        <img class="hero__slide" src="images/kew/hero-pipeline-sky-toned.jpg" alt="" width="1600" height="900" loading="eager" decoding="async">
       </div>
       <div class="container hero__content">
+        <p class="hero-eyebrow">Founded 2000 · Visakhapatnam</p>
         <h1 class="display display--light">Pneumatic sample conveying built for your plant</h1>
-        <p class="lead lead--light">Kerri Engineering Works designs, builds and commissions sample transport and laboratory equipment for steel, cement, foundry and aluminium plants—from Visakhapatnam since 2000.</p>
+        <p class="lead lead--light">We design, build and commission sample transport and laboratory equipment for steel, cement, foundry and aluminium plants—customized to each site.</p>
         <div class="hero__actions">
           <a href="contact.html" class="btn btn-primary">Request a quote</a>
           <a href="products.html" class="btn btn-ghost-light">Systems we supply</a>
@@ -99,15 +101,15 @@
       <div class="container">
         <div class="stats-row">
           <div class="stat-cell">
-            <span class="data-lg">24+</span>
+            <span class="data-lg" data-count="24" data-suffix="+">24+</span>
             <p class="stat-desc">Years since founding (2000)</p>
           </div>
           <div class="stat-cell">
-            <span class="data-lg">400+</span>
+            <span class="data-lg" data-count="400" data-suffix="+">400+</span>
             <p class="stat-desc">Projects delivered</p>
           </div>
           <div class="stat-cell">
-            <span class="data-lg">100+</span>
+            <span class="data-lg" data-count="100" data-suffix="+">100+</span>
             <p class="stat-desc">Clients served</p>
           </div>
           <div class="stat-cell">
@@ -118,15 +120,36 @@
       </div>
     </section>
 
+    <section class="section section--mist">
+      <div class="container split reveal">
+        <div>
+          <h2 class="h2">Expertise you can count on</h2>
+          <p>Over 24 years of pneumatic sample conveying and macro etching equipment for heavy industry. We handle design, manufacture, installation and commissioning.</p>
+          <a href="about.html" class="text-link">About Kerri</a>
+        </div>
+        <section class="value-pillars" aria-label="Why plants choose Kerri">
+          <article><h3 class="h3">Rapid transport</h3><p>Speeds exceeding 100 km/h; results within seconds on suitable routes.</p></article>
+          <article><h3 class="h3">Site-specific design</h3><p>Routes from your layout—not catalogue specifications.</p></article>
+          <article><h3 class="h3">Lifecycle support</h3><p>Consultation through commissioning from Visakhapatnam.</p></article>
+        </section>
+      </div>
+    </section>
+
     <section class="section" aria-labelledby="what-we-build">
       <div class="container reveal">
         <h2 class="h2" id="what-we-build">What we build</h2>
-        <p class="lead">Horizontal C-loop and vertical upright receiving stations move samples from melt shops and casting areas to the laboratory—plus macro etching and dust conveying where the plant needs them.</p>
+        <p class="lead">Horizontal C-loop and vertical upright receiving stations, macro etching units and dust conveying for integrated plants.</p>
+        <div class="product-hub product-hub--home">
+          <a class="product-hub__card reveal" href="horizontal-system.html"><h3 class="h3">Horizontal C-loop</h3><p>Long-distance routes and robust receiving loops.</p></a>
+          <a class="product-hub__card reveal" href="vertical-system.html"><h3 class="h3">Vertical upright</h3><p>Congested labs and short runs.</p></a>
+          <a class="product-hub__card reveal" href="macro-etching.html"><h3 class="h3">Macro etching</h3><p>Plant laboratory macrostructure examination.</p></a>
+          <a class="product-hub__card reveal" href="dust-conveying.html"><h3 class="h3">Dust conveying</h3><p>Pneumatic dust transport for heavy industry.</p></a>
+        </div>
       </div>
       <div class="system-showcase reveal">
         <div class="container split split--wide">
           <div class="split__media split__media--tall">
-            <img src="images/installations/03.jpg" alt="Horizontal C-loop sample receiving station" width="1000" height="705" loading="eager" decoding="async" fetchpriority="high">
+            <img src="images/kew/horizontal-stations-workshop.jpg" alt="Horizontal C-loop sample receiving stations" width="1200" height="800" loading="eager" decoding="async" fetchpriority="high">
           </div>
           <div class="system-showcase__copy">
             <h3 class="h3">Horizontal C-loop station</h3>
@@ -138,7 +161,7 @@
       <div class="system-showcase system-showcase--bleed reveal">
         <div class="container split split--reverse split--wide">
           <div class="split__media split__media--tall">
-            <img src="images/installations/05.jpg" alt="Vertical sample receiving station" width="1000" height="585" loading="eager" decoding="async">
+            <img src="images/kew/vertical-station-blower.jpg" alt="Vertical sample receiving station with ring blower" width="1200" height="800" loading="eager" decoding="async">
           </div>
           <div class="system-showcase__copy">
             <h3 class="h3">Vertical upright station</h3>
@@ -167,19 +190,20 @@
           </ul>
         </div>
         <div class="split__media split__media--tall">
-          <img src="images/installations/07.jpg" alt="In-plant pneumatic sample routing" width="621" height="1000" loading="lazy" decoding="async">
+          <img src="images/kew/installation-pipe-racks.jpg" alt="In-plant pneumatic pipe racks" width="1200" height="800" loading="lazy" decoding="async">
         </div>
       </div>
     </section>
 
     <div class="photo-band" aria-hidden="true">
-      <img src="images/installations/01.jpg" alt="" width="550" height="1000" loading="lazy" decoding="async">
+      <img src="images/kew/lab-station-row.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async">
     </div>
 
     <section class="section">
       <div class="container split reveal">
-        <div class="split__media">
-          <img src="images/installations/09.jpg" alt="Macro etching equipment in a plant laboratory" width="1000" height="450" loading="lazy" decoding="async">
+        <div class="photo-placeholder split__media" role="img" aria-label="Macro etching photo coming soon">
+          <p class="photo-placeholder__title">Photo coming soon</p>
+          <p class="photo-placeholder__note">Macro etching unit</p>
         </div>
         <div>
           <h2 class="h2">Macro etching units</h2>
@@ -191,8 +215,9 @@
 
     <section class="section section--mist">
       <div class="container split split--reverse reveal">
-        <div class="split__media split__media--tall">
-          <img src="images/installations/08.jpg" alt="Pneumatic dust conveying pipeline" width="629" height="1000" loading="lazy" decoding="async">
+        <div class="photo-placeholder split__media split__media--tall" role="img" aria-label="Dust conveying photo coming soon">
+          <p class="photo-placeholder__title">Photo coming soon</p>
+          <p class="photo-placeholder__note">Dust conveying system</p>
         </div>
         <div>
           <h2 class="h2">Dust conveying</h2>
@@ -229,6 +254,7 @@
           <li class="clients-wordmark">Suez Steel Co.</li>
         </ul>
         <p class="clients-feature__reach reveal"><span class="clients-feature__reach-label">Industries served</span> Steel · Cement · Foundry · Aluminium · International</p>
+        <p class="center-link reveal"><a href="clients.html" class="btn btn-ghost-light">Full clients page</a></p>
       </div>
     </section>
 
@@ -259,16 +285,17 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="products.html">Products</a></li>
+            <li><a href="clients.html">Clients</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div>
           <h3>Products</h3>
           <ul>
-            <li><a href="products.html#horizontal">Horizontal sample transport</a></li>
-            <li><a href="products.html#vertical">Vertical sample transport</a></li>
-            <li><a href="products.html#macro-etching">Macro etching units</a></li>
-            <li><a href="products.html#dust-conveying">Dust conveying</a></li>
+            <li><a href="horizontal-system.html">Horizontal system</a></li>
+            <li><a href="vertical-system.html">Vertical system</a></li>
+            <li><a href="macro-etching.html">Macro etching</a></li>
+            <li><a href="dust-conveying.html">Dust conveying</a></li>
           </ul>
         </div>
         <div>
